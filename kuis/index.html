@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuis Interaktif LHO: Jelajah Pusaka Bahasa Surakarta</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    /* Wallpaper Pola Batik Kawung Khas Sogan Surakarta */
+    body {
+      background-color: #1a110a;
+      background-image: 
+        radial-gradient(circle at 50% 20%, rgba(217, 119, 6, 0.15) 0%, transparent 65%),
+        radial-gradient(circle at 90% 80%, rgba(180, 83, 9, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 10% 90%, rgba(120, 53, 15, 0.15) 0%, transparent 50%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='1.2' stroke-opacity='0.16'%3E%3Ccircle cx='40' cy='40' r='24'/%3E%3Ccircle cx='0' cy='0' r='24'/%3E%3Ccircle cx='80' cy='0' r='24'/%3E%3Ccircle cx='0' cy='80' r='24'/%3E%3Ccircle cx='80' cy='80' r='24'/%3E%3Ccircle cx='40' cy='40' r='8' fill='%23d4af37' fill-opacity='0.08'/%3E%3Cellipse cx='40' cy='18' rx='8' ry='16' fill='%23d4af37' fill-opacity='0.05'/%3E%3Cellipse cx='40' cy='62' rx='8' ry='16' fill='%23d4af37' fill-opacity='0.05'/%3E%3Cellipse cx='18' cy='40' rx='16' ry='8' fill='%23d4af37' fill-opacity='0.05'/%3E%3Cellipse cx='62' cy='40' rx='16' ry='8' fill='%23d4af37' fill-opacity='0.05'/%3E%3Cpath d='M36 36 L44 44 M44 36 L36 44' stroke='%23d4af37' stroke-width='1' stroke-opacity='0.2'/%3E%3C/g%3E%3C/svg%3E");
+      background-attachment: fixed;
+    }
+
+    /* Efek Bingkai Ornamen Keraton */
+    .keraton-card {
+      background: linear-gradient(165deg, rgba(38, 24, 16, 0.94) 0%, rgba(26, 17, 11, 0.97) 100%);
+      box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.7), 0 0 25px rgba(217, 119, 6, 0.15);
+      border: 1px solid rgba(217, 119, 6, 0.35);
+      position: relative;
+    }
+
+    /* Ukiran Sudut Tradisional Jawa */
+    .corner-ornament {
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      pointer-events: none;
+      opacity: 0.65;
+    }
+    .corner-tl { top: 6px; left: 6px; border-top: 2px solid #d4af37; border-left: 2px solid #d4af37; border-top-left-radius: 6px; }
+    .corner-tr { top: 6px; right: 6px; border-top: 2px solid #d4af37; border-right: 2px solid #d4af37; border-top-right-radius: 6px; }
+    .corner-bl { bottom: 6px; left: 6px; border-bottom: 2px solid #d4af37; border-left: 2px solid #d4af37; border-bottom-left-radius: 6px; }
+    .corner-br { bottom: 6px; right: 6px; border-bottom: 2px solid #d4af37; border-right: 2px solid #d4af37; border-bottom-right-radius: 6px; }
+
+    /* Glow Keemasan */
+    .gold-glow {
+      text-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #1a100a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #d97706;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body class="text-amber-50 antialiased min-h-screen p-2 sm:p-4 md:p-6 flex flex-col items-center justify-center font-sans">
+
+  <!-- Navigasi Terpadu Kembali ke Jejak Observasi -->
+  <div class="w-full max-w-4xl mb-3 flex items-center justify-between text-xs px-1">
+    <button onclick="parent && parent.navigateTo ? parent.navigateTo('kaidah') : (window.history.length > 1 ? window.history.back() : window.location.href='../index.html')" class="px-3 py-1.5 rounded-lg bg-amber-900/60 hover:bg-amber-800 text-amber-200 border border-amber-600/40 flex items-center gap-1.5 transition">
+      <span>⬅️</span> <span>Kembali ke Materi Kaidah Kebahasaan</span>
+    </button>
+    <div class="flex items-center gap-2">
+      <button onclick="parent && parent.navigateTo ? parent.navigateTo('peta') : null" class="px-3 py-1.5 rounded-lg bg-amber-600 hover:bg-amber-500 text-amber-950 font-bold flex items-center gap-1 transition">
+        <span>Lanjut ke Peta Surakarta</span> <span>🗺️</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Container Utama dengan Nuansa Arsitektur Keraton Surakarta -->
+  <div id="game-container" class="keraton-card w-full max-w-4xl rounded-2xl overflow-hidden flex flex-col min-h-[660px] z-10 backdrop-blur-md">
+    
+    <!-- Ornamen Sudut Jawa -->
+    <div class="corner-ornament corner-tl"></div>
+    <div class="corner-ornament corner-tr"></div>
+    <div class="corner-ornament corner-bl"></div>
+    <div class="corner-ornament corner-br"></div>
+
+    <!-- Top Bar: Header Budaya & Status Formatif -->
+    <header class="bg-[#21140c]/90 border-b border-amber-600/30 px-5 py-3.5 flex flex-wrap items-center justify-between gap-3 relative z-20">
+      
+      <!-- Brand & Ikon Gunungan Mini -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-amber-500/15 border border-amber-500/40 flex items-center justify-center text-xl shadow-inner">
+          🏛️
+        </div>
+        <div>
+          <h1 class="text-base md:text-lg font-bold tracking-tight text-amber-200 flex items-center gap-2">
+            Pusaka Bahasa Surakarta
+            <span class="text-[11px] bg-amber-500/20 text-amber-300 font-semibold px-2.5 py-0.5 rounded-full border border-amber-500/40">
+              CRT • Teks LHO
+            </span>
+          </h1>
+          <div class="flex items-center gap-2 text-xs text-amber-300/70">
+            <span id="active-student-badge" class="font-medium text-amber-300 hidden">👤 <span id="header-student-name">-</span></span>
+            <span id="header-subtitle">Asesmen Formatif Budaya Kota Solo</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigasi Cepat, Audio & Setting Spreadsheet -->
+      <div class="flex items-center gap-2">
+        <button id="btn-sound-toggle" title="Suara Gamelan" class="px-2.5 py-1.5 rounded-lg bg-amber-900/40 hover:bg-amber-800/60 border border-amber-600/40 text-xs text-amber-200 flex items-center gap-1.5 transition">
+          <span id="sound-icon">🔔</span> <span class="hidden sm:inline text-[11px]">Gamelan</span>
+        </button>
+        <button id="btn-glossary-modal" title="Buku Kamus Budaya" class="px-2.5 py-1.5 rounded-lg bg-amber-900/40 hover:bg-amber-800/60 border border-amber-600/40 text-xs text-amber-200 flex items-center gap-1.5 transition">
+          <span>📖</span> <span class="hidden sm:inline text-[11px]">Kamus</span>
+        </button>
+        <button id="btn-sheet-setting" title="Pengaturan Spreadsheet Guru" class="px-2.5 py-1.5 rounded-lg bg-emerald-950/60 hover:bg-emerald-900/80 border border-emerald-600/40 text-xs text-emerald-200 flex items-center gap-1.5 transition">
+          <span>📊</span> <span class="hidden sm:inline text-[11px]">Spreadsheet</span>
+        </button>
+      </div>
+
+      <!-- HUD Stats: Skor & Capaian -->
+      <div id="hud-stats" class="flex items-center gap-2.5 text-xs font-medium w-full sm:w-auto justify-end pt-2 sm:pt-0 border-t sm:border-t-0 border-amber-900/40">
+        <div class="flex items-center gap-1.5 bg-[#170e08]/90 px-3 py-1.5 rounded-lg border border-amber-600/40 shadow-sm">
+          <span class="text-amber-400 font-bold">★ Skor:</span>
+          <span id="score-display" class="font-bold text-sm text-amber-200">0</span>
+        </div>
+        <div class="flex items-center gap-1.5 bg-[#170e08]/90 px-3 py-1.5 rounded-lg border border-emerald-600/40 shadow-sm">
+          <span class="text-emerald-400 font-semibold">🎯 Benar:</span>
+          <span id="correct-display" class="font-bold text-sm text-emerald-300">0</span>
+        </div>
+        <div class="flex items-center gap-1.5 bg-[#170e08]/90 px-3 py-1.5 rounded-lg border border-amber-600/40 shadow-sm">
+          <span class="text-amber-300/70">Pos:</span>
+          <span id="progress-display" class="font-semibold text-amber-200">0/10</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- PETA JALUR PUSAKA 5 DESTINASI SOLO (Visual Map Tracker) -->
+    <div class="bg-[#1a100a]/80 border-b border-amber-900/40 px-4 py-2.5 overflow-x-auto">
+      <div class="flex items-center justify-between min-w-[560px] text-[11px] text-amber-300/80 px-2" id="trail-container">
+        <!-- Jalur visual interaktif diisi dinamis -->
+      </div>
+    </div>
+
+    <!-- Content Screen Switcher -->
+    <main class="flex-1 p-5 md:p-8 flex flex-col justify-center relative z-20">
+
+      <!-- ================= SCREEN 1: LOBBY & FORM IDENTITAS SISWA ================= -->
+      <section id="screen-lobby" class="flex flex-col items-center text-center space-y-5">
+        
+        <!-- Ilustrasi Gunungan Wayang SVG -->
+        <div class="relative group">
+          <div class="w-20 h-20 rounded-full bg-amber-500/10 border-2 border-amber-500/40 flex items-center justify-center p-3 shadow-lg shadow-amber-900/40">
+            <svg viewBox="0 0 100 120" class="w-14 h-14 fill-current text-amber-400 drop-shadow">
+              <path d="M50 5 Q38 40 18 75 Q15 95 25 105 L75 105 Q85 95 82 75 Q62 40 50 5 Z" fill="rgba(217, 119, 6, 0.25)" stroke="#f59e0b" stroke-width="2.5"/>
+              <circle cx="50" cy="55" r="14" fill="none" stroke="#fbbf24" stroke-width="2"/>
+              <path d="M50 30 L50 95 M38 55 Q50 45 62 55 M34 72 Q50 62 66 72 M42 90 L58 90" stroke="#fef3c7" stroke-width="1.8"/>
+            </svg>
+          </div>
+          <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-amber-600/80 text-amber-100 text-[10px] px-2.5 py-0.5 rounded-full border border-amber-400/50 uppercase tracking-wider font-semibold">
+            Kearifan Lokal
+          </span>
+        </div>
+
+        <div class="max-w-2xl space-y-1.5">
+          <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-amber-100 gold-glow">
+            Jelajah Bahasa Nagari Surakarta
+          </h2>
+          <p class="text-xs md:text-sm text-amber-200/80 leading-relaxed max-w-xl mx-auto">
+            Asesmen formatif kaidah kebahasaan teks Laporan Hasil Observasi (LHO) berpendekatan Culturally Responsive Teaching (CRT) di 5 Ikon Budaya Solo.
+          </p>
+        </div>
+
+        <!-- FORM INPUT IDENTITAS SISWA (NAMA & NO ABSEN) -->
+        <div class="bg-[#24160d]/95 border-2 border-amber-600/40 rounded-2xl p-4 sm:p-5 max-w-md w-full text-left space-y-3 shadow-xl">
+          <div class="flex items-center justify-between border-b border-amber-900/60 pb-2">
+            <h3 class="text-xs sm:text-sm font-bold text-amber-300 flex items-center gap-1.5">
+              <span>✍️</span> Masukkan Identitas Pengamat / Siswa
+            </h3>
+            <span class="text-[10px] bg-amber-900/50 text-amber-300 px-2 py-0.5 rounded border border-amber-600/30">Wajib Diisi</span>
+          </div>
+
+          <div>
+            <label for="student-name" class="block text-xs font-semibold text-amber-200 mb-1">
+              Nama Lengkap <span class="text-rose-400">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="student-name" 
+              placeholder="Contoh: Raden Ayu Sekar Langit" 
+              class="w-full bg-[#160d07] border border-amber-700/60 rounded-xl px-3.5 py-2 text-xs text-amber-100 placeholder-amber-700/80 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition"
+              required
+            />
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label for="student-number" class="block text-xs font-semibold text-amber-200 mb-1">
+                Nomor Absen <span class="text-rose-400">*</span>
+              </label>
+              <input 
+                type="number" 
+                id="student-number" 
+                min="1" 
+                max="60" 
+                placeholder="1 - 50" 
+                class="w-full bg-[#160d07] border border-amber-700/60 rounded-xl px-3.5 py-2 text-xs text-amber-100 placeholder-amber-700/80 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition"
+                required
+              />
+            </div>
+            <div>
+              <label for="student-class" class="block text-xs font-semibold text-amber-200 mb-1">
+                Kelas / Rombel
+              </label>
+              <input 
+                type="text" 
+                id="student-class" 
+                placeholder="X-1 / X-A" 
+                value="X-1"
+                class="w-full bg-[#160d07] border border-amber-700/60 rounded-xl px-3.5 py-2 text-xs text-amber-100 placeholder-amber-700/80 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition"
+              />
+            </div>
+          </div>
+
+          <!-- Pesan Peringatan Validasi -->
+          <div id="form-error-msg" class="hidden text-[11px] text-rose-400 bg-rose-950/40 border border-rose-800/50 rounded-lg p-2 font-medium flex items-center gap-1.5">
+            <span>⚠️</span> Mohon isi Nama Lengkap dan Nomor Absen terlebih dahulu!
+          </div>
+        </div>
+
+        <button id="btn-start" class="px-8 py-3.5 bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800 hover:from-amber-500 hover:to-amber-700 text-amber-50 font-bold rounded-xl shadow-lg shadow-amber-950/60 border border-amber-400/40 transition transform hover:-translate-y-0.5 active:translate-y-0 text-sm flex items-center gap-2">
+          <span>🚀</span> Buka Ekspedisi Budaya & Mulai Kuis
+        </button>
+      </section>
+
+      <!-- ================= SCREEN 2: GAMEPLAY (SOAL OBSERVASI) ================= -->
+      <section id="screen-game" class="hidden flex-col space-y-4">
+        
+        <!-- Header Pos Budaya -->
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-amber-800/40 pb-3">
+          <div class="flex items-center gap-3">
+            <span id="zone-icon" class="text-3xl filter drop-shadow">👑</span>
+            <div>
+              <span id="zone-tag" class="text-xs font-bold uppercase tracking-wider text-amber-400">Pos 1: Keraton Surakarta</span>
+              <h3 id="target-rule" class="text-sm font-semibold text-amber-100">Kaidah: Kalimat Definisi</h3>
+            </div>
+          </div>
+          <div class="text-xs text-amber-200 font-mono bg-[#170e08] px-3.5 py-1.5 rounded-lg border border-amber-700/40">
+            Tantangan <span id="current-q-index" class="font-bold text-amber-400">1</span> dari 10
+          </div>
+        </div>
+
+        <!-- Kutipan Teks Observasi Kontekstual Solo -->
+        <div class="bg-[#1b1009]/90 border-l-4 border-amber-500 rounded-r-xl p-4 text-xs md:text-sm text-amber-100 shadow-inner">
+          <div class="text-[11px] font-bold text-amber-400 uppercase tracking-wider mb-1 flex items-center gap-1.5">
+            <span>🔎</span> Teks Laporan Hasil Observasi:
+          </div>
+          <p id="context-text" class="italic font-serif leading-relaxed text-amber-100/90">
+            "Keraton Surakarta Hadiningrat merupakan istana resmi Kasunanan Surakarta yang didirikan oleh Susuhunan Pakubuwana II pada tahun 1744 sebagai pusat kebudayaan Jawa."
+          </p>
+        </div>
+
+        <!-- Pertanyaan -->
+        <div class="space-y-1">
+          <h4 id="question-text" class="text-sm md:text-base font-semibold text-amber-50 leading-snug">
+            Manakah pernyataan yang tepat mengenai kaidah kebahasaan kalimat di atas?
+          </h4>
+        </div>
+
+        <!-- Opsi Jawaban (Pilihan Ganda A - D) -->
+        <div id="options-container" class="grid grid-cols-1 gap-2.5">
+          <!-- Diisi dinamis via JS -->
+        </div>
+
+        <!-- Kotak Umpan Balik Formatif (CRT Feedback) -->
+        <div id="feedback-box" class="hidden rounded-xl border p-4 space-y-2.5 text-xs md:text-sm transition-all duration-300">
+          <div class="flex items-center gap-2 font-bold text-sm" id="feedback-title">
+            <span id="feedback-icon">🌟</span>
+            <span id="feedback-status">Analisis Tepat!</span>
+          </div>
+          <p id="feedback-linguistic" class="text-amber-100/90 leading-relaxed">
+            <!-- Penjelasan Kaidah Bahasa -->
+          </p>
+          <div class="bg-[#140c07]/80 border border-amber-600/30 rounded-lg p-3 text-xs">
+            <strong class="text-amber-400 block mb-0.5 flex items-center gap-1">
+              <span>💡</span> Refleksi Budaya Surakarta (CRT Insight):
+            </strong>
+            <span id="feedback-cultural" class="text-amber-200/80 italic">
+              <!-- Relevansi Budaya Solo -->
+            </span>
+          </div>
+          <div class="pt-2 flex justify-end">
+            <button id="btn-next" class="px-5 py-2 bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-amber-50 font-bold rounded-lg text-xs flex items-center gap-1.5 shadow-md border border-amber-400/40 transition">
+              <span>Lanjut ke Pos Berikutnya</span> ➜
+            </button>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ================= SCREEN 3: RAPOR FORMATIF & EXPORT SPREADSHEET ================= -->
+      <section id="screen-result" class="hidden flex-col items-center text-center space-y-5">
+        <div class="w-16 h-16 rounded-full bg-amber-500/15 border-2 border-amber-400 flex items-center justify-center text-3xl shadow-xl shadow-amber-950/80">
+          🏆
+        </div>
+
+        <div class="space-y-1">
+          <h2 class="text-2xl md:text-3xl font-extrabold text-amber-100 gold-glow">
+            Ekspedisi Selesai!
+          </h2>
+          <p class="text-xs md:text-sm text-amber-300/80">
+            Hasil Penilaian Formatif Pengamat: <strong id="res-student-name" class="text-amber-200">-</strong> (<span id="res-student-meta">-</span>)
+          </p>
+        </div>
+
+        <!-- Rapor Perolehan -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-xl">
+          <div class="bg-[#1f130b] border border-amber-600/40 p-3.5 rounded-xl flex flex-col items-center shadow">
+            <span class="text-xs text-amber-300/70">Total Skor Pengamatan</span>
+            <span id="final-score" class="text-2xl font-black text-amber-400 mt-1">1000</span>
+          </div>
+          <div class="bg-[#1f130b] border border-amber-600/40 p-3.5 rounded-xl flex flex-col items-center shadow">
+            <span class="text-xs text-amber-300/70">Tingkat Ketepatan</span>
+            <span id="final-accuracy" class="text-2xl font-black text-emerald-400 mt-1">10 / 10</span>
+          </div>
+          <div class="bg-[#1f130b] border border-amber-600/40 p-3.5 rounded-xl flex flex-col items-center shadow">
+            <span class="text-xs text-amber-300/70">Gelar Penghargaan</span>
+            <span id="final-title" class="text-xs font-bold text-amber-200 mt-2 text-center">Duta Pusaka Bahasa Surakarta</span>
+          </div>
+        </div>
+
+        <!-- FITUR KHUSUS GURU: KIRIM & EKSPOR HASIL KE GOOGLE SPREADSHEET -->
+        <div class="bg-[#1a281e]/90 border-2 border-emerald-600/50 rounded-2xl p-4 sm:p-5 w-full max-w-2xl text-left space-y-3 shadow-xl">
+          <div class="flex items-center justify-between border-b border-emerald-800/60 pb-2">
+            <h4 class="font-bold text-emerald-300 text-xs sm:text-sm flex items-center gap-1.5">
+              <span>📊</span> Rekapitulasi Nilai untuk Guru (Google Spreadsheet)
+            </h4>
+            <span id="sheet-status-badge" class="text-[10px] bg-emerald-950 px-2 py-0.5 rounded border border-emerald-500/40 text-emerald-300 font-semibold">
+              Siap Disimpan
+            </span>
+          </div>
+
+          <p class="text-[11px] text-emerald-200/80 leading-relaxed">
+            Data penilaian formatif siswa ini dapat langsung dikirim otomatis ke Google Spreadsheet guru atau disalin dengan satu kali klik.
+          </p>
+
+          <!-- Status Box Pengiriman Webhook -->
+          <div id="webhook-feedback-box" class="hidden p-2.5 rounded-xl text-xs font-medium"></div>
+
+          <!-- Tombol Aksi Penilaian Guru -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1">
+            <button id="btn-send-sheet" class="px-4 py-2.5 bg-emerald-700 hover:bg-emerald-600 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-1.5 shadow transition">
+              <span>🚀</span> Kirim ke Spreadsheet
+            </button>
+            <button id="btn-copy-tsv" class="px-4 py-2.5 bg-amber-700 hover:bg-amber-600 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-1.5 shadow transition">
+              <span>📋</span> Salin Baris (Paste)
+            </button>
+            <button id="btn-download-csv" class="px-4 py-2.5 bg-stone-800 hover:bg-stone-700 text-amber-100 font-bold rounded-xl text-xs flex items-center justify-center gap-1.5 border border-stone-600/50 shadow transition">
+              <span>📥</span> Unduh File (.csv)
+            </button>
+          </div>
+        </div>
+
+        <!-- Diagnosis 10 Indikator Kebahasaan -->
+        <div class="bg-[#190f09] border border-amber-700/40 rounded-xl p-4 w-full max-w-2xl text-left text-xs space-y-2.5">
+          <h4 class="font-bold text-amber-300 flex items-center gap-1.5 border-b border-amber-900/60 pb-2">
+            <span>📝</span> Diagnosis Capaian 10 Indikator Kaidah Teks LHO:
+          </h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-amber-100/80" id="diagnostic-summary">
+            <!-- Diisi dinamis -->
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <button id="btn-restart" class="px-6 py-2.5 bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-amber-50 font-bold rounded-xl text-xs flex items-center gap-2 shadow border border-amber-400/40 transition">
+            <span>🔄</span> Ulangi Ekspedisi (Siswa Baru)
+          </button>
+          <button onclick="parent && parent.navigateTo ? parent.navigateTo('peta') : null" class="px-6 py-2.5 bg-emerald-700 hover:bg-emerald-600 text-white font-bold rounded-xl text-xs flex items-center gap-2 shadow transition">
+            <span>🗺️</span> Lanjut ke Peta Jelajah Surakarta ➔
+          </button>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- MODAL PENGATURAN SPREADSHEET GURU -->
+    <div id="sheet-modal" class="hidden fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4">
+      <div class="bg-[#1c231d] border-2 border-emerald-500/60 rounded-2xl max-w-lg w-full p-5 space-y-4 shadow-2xl text-xs text-emerald-100">
+        <div class="flex items-center justify-between border-b border-emerald-800/50 pb-2">
+          <h3 class="text-sm font-bold text-emerald-300 flex items-center gap-1.5">
+            <span>⚙️</span> Pengaturan Webhook Google Spreadsheet Guru
+          </h3>
+          <button id="btn-close-sheet-modal" class="text-emerald-400 hover:text-emerald-200 text-base font-bold">✕</button>
+        </div>
+
+        <div class="space-y-2">
+          <label for="input-sheet-url" class="block font-semibold text-emerald-200">
+            URL Google Apps Script Web App (Webhook Endpoint):
+          </label>
+          <input 
+            type="url" 
+            id="input-sheet-url" 
+            placeholder="https://script.google.com/macros/s/.../exec" 
+            class="w-full bg-[#111812] border border-emerald-700/60 rounded-xl px-3 py-2 text-xs text-emerald-100 placeholder-emerald-800 focus:outline-none focus:border-emerald-400"
+          />
+          <p class="text-[11px] text-emerald-300/70">
+            *Masukkan URL Deployment Google Apps Script agar nilai siswa otomatis masuk ke baris Spreadsheet guru. (URL disimpan di memori peramban/localStorage).
+          </p>
+        </div>
+
+        <div class="bg-[#111812] border border-emerald-800/60 rounded-xl p-3 space-y-1.5 text-[11px] text-emerald-200/80">
+          <strong class="text-emerald-300 block">💡 Cara Cepat Buat Google Spreadsheet Guru (30 Detik):</strong>
+          <ol class="list-decimal list-inside space-y-0.5">
+            <li>Buat Google Spreadsheet baru di Google Drive Anda.</li>
+            <li>Klik menu <strong>Ekstensi (Extensions) > Apps Script</strong>.</li>
+            <li>Salin skrip Apps Script yang disediakan guru & klik <strong>Deploy > New Deployment > Web App</strong> (Akses: <em>Anyone</em>).</li>
+            <li>Salin URL Web App yang muncul, lalu tempel di kotak atas!</li>
+          </ol>
+        </div>
+
+        <div class="flex items-center justify-between pt-2">
+          <button id="btn-copy-script-code" class="px-3.5 py-1.5 bg-stone-800 hover:bg-stone-700 text-emerald-300 rounded-lg text-xs font-semibold border border-stone-600 transition">
+            📄 Salin Kode Apps Script
+          </button>
+          <button id="btn-save-sheet-url" class="px-5 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-bold transition">
+            Simpan Pengaturan
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Kamus Budaya Solo (Glosarium CRT) -->
+    <div id="glossary-modal" class="hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+      <div class="bg-[#24150d] border-2 border-amber-500/50 rounded-2xl max-w-lg w-full p-5 space-y-4 shadow-2xl text-xs text-amber-100">
+        <div class="flex items-center justify-between border-b border-amber-700/40 pb-2">
+          <h3 class="text-sm font-bold text-amber-300 flex items-center gap-1.5">
+            <span>📖</span> Glosarium Budaya Surakarta (CRT Pocket Guide)
+          </h3>
+          <button id="btn-close-glossary" class="text-amber-400 hover:text-amber-200 text-base font-bold">✕</button>
+        </div>
+        <div class="space-y-2.5 max-h-72 overflow-y-auto pr-1">
+          <div class="p-2 rounded bg-[#180e08] border border-amber-900/40">
+            <strong class="text-amber-400">Saka Guru:</strong> 4 tiang penyangga utama tanpa paku pada pendopo joglo Jawa, simbol keteguhan prinsip hidup.
+          </div>
+          <div class="p-2 rounded bg-[#180e08] border border-amber-900/40">
+            <strong class="text-amber-400">Kumudawati:</strong> Motif hias atap Pura Mangkunegaran berupa teratai 8 warna simbol ketentraman batin dan penangkal marabahaya.
+          </div>
+          <div class="p-2 rounded bg-[#180e08] border border-amber-900/40">
+            <strong class="text-amber-400">Canting & Malam:</strong> Alat tembaga bertrikoma bambu dan lilin panas untuk melukis motif batik tulis tradisional Laweyan.
+          </div>
+          <div class="p-2 rounded bg-[#180e08] border border-amber-900/40">
+            <strong class="text-amber-400">Pasar Gede Hardjonagoro:</strong> Mahakarya arsitektur Thomas Karsten (1930) yang memadukan ventilasi Eropa dan ruang sosial multikultural.
+          </div>
+          <div class="p-2 rounded bg-[#180e08] border border-amber-900/40">
+            <strong class="text-amber-400">Memayu Hayuning Bawana:</strong> Filosofi Jawa tentang kewajiban manusia menjaga kelestarian dan keindahan semesta, tercermin di Taman Balekambang.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Nuansa Budaya -->
+    <footer class="bg-[#1b1009]/90 border-t border-amber-900/50 px-5 py-2.5 text-center text-[11px] text-amber-300/70 flex flex-wrap items-center justify-between gap-2">
+      <span class="flex items-center gap-1.5">
+        <span>🪷</span> Pembelajaran Bahasa Indonesia Berbasis Kearifan Lokal Solo
+      </span>
+      <span>Kurikulum Merdeka • Pendekatan Culturally Responsive Teaching</span>
+    </footer>
+
+  </div>
+
+  <script>
+    // DATA 10 SOAL KUIS LHO BERBASIS BUDAYA SOLO
+    const quizData = [
+      // POS 1: KERATON SURAKARTA (2 SOAL)
+      {
+        posId: 1,
+        pos: "Pos 1: Keraton Surakarta Hadiningrat",
+        icon: "👑",
+        kaidah: "Kalimat Definisi",
+        konteks: "Keraton Surakarta Hadiningrat merupakan istana resmi Kasunanan Surakarta yang didirikan oleh Susuhunan Pakubuwana II pada tahun 1744 sebagai pusat pemerintahan dan pelestarian kebudayaan Jawa.",
+        pertanyaan: "Ciri kebahasaan teks LHO yang paling dominan menandai kalimat di atas sebagai kalimat definisi adalah...",
+        pilihan: [
+          "Penggunaan verba relasional kopula 'merupakan' yang menjelaskan entitas subjek secara umum.",
+          "Penggunaan keterangan waktu lampau 'pada tahun 1744' yang menunjukkan kronologi sejarah.",
+          "Adanya kata sifat 'resmi' yang menerangkan kondisi fisik istana raja.",
+          "Penggunaan konjungsi tujuan 'sebagai' untuk membatasi aktivitas keraton."
+        ],
+        kunci: 0,
+        penjelasanBahasa: "Kalimat definisi dalam teks LHO ditandai dengan verba relasional atau kopula seperti 'merupakan', 'adalah', 'ialah', atau 'yaitu' untuk memberikan batasan pengertian umum dari objek yang diobservasi.",
+        penjelasanCRT: "Keraton Surakarta bukan sekadar bangunan fisik kuno, melainkan simbol pusat kosmologi dan falsafah hidup masyarakat Jawa Surakarta (pancer kebudayaan).",
+        aspek: "Kalimat Definisi"
+      },
+      {
+        posId: 1,
+        pos: "Pos 1: Keraton Surakarta Hadiningrat",
+        icon: "👑",
+        kaidah: "Verba Material vs Frasa Nomina",
+        konteks: "Para abdi dalem berjalan perlahan tanpa alas kaki sambil membawa sesaji pusaka menuju Sasana Sewaka.",
+        pertanyaan: "Berdasarkan kutipan teks LHO di atas, kata yang berfungsi sebagai verba material (kata kerja tindakan yang dapat diamati langsung oleh indra) adalah...",
+        pilihan: [
+          "Abdi dalem dan sesaji pusaka",
+          "Berjalan dan membawa",
+          "Perlahan dan tanpa alas kaki",
+          "Menuju dan Sasana Sewaka"
+        ],
+        kunci: 1,
+        penjelasanBahasa: "Verba material adalah kata kerja yang menunjukkan tindakan atau perbuatan fisik nyata yang dapat dilihat/diamati oleh observer. Kata 'berjalan' dan 'membawa' merupakan tindakan konkret.",
+        penjelasanCRT: "Tradisi berjalan tanpa alas kaki bagi abdi dalem melambangkan kerendahhatian (unggah-ungguh) dan penghormatan sakral kepada tanah leluhur keraton.",
+        aspek: "Verba Material"
+      },
+
+      // POS 2: PURA MANGKUNEGARAN (2 SOAL)
+      {
+        posId: 2,
+        pos: "Pos 2: Pura Mangkunegaran",
+        icon: "🏯",
+        kaidah: "Kalimat Deskripsi",
+        konteks: "Pendopo Ageng Pura Mangkunegaran berukuran 3.500 meter persegi dengan atap joglo megah bercat kuning keemasan dan ditopang oleh empat saka guru kayu jati kokoh.",
+        pertanyaan: "Manakah alasan yang paling tepat mengapa kalimat kutipan di atas diklasifikasikan sebagai kalimat deskripsi dalam teks LHO?",
+        pilihan: [
+          "Menjelaskan pengertian filosofis dan asal-usul nama Pura Mangkunegaran.",
+          "Menyajikan rincian ciri fisik objek (ukuran, warna, bahan bangunan) yang dapat dibuktikan secara empiris melalui pengamatan indrawi.",
+          "Menyampaikan opini subjektif penulis mengenai keindahan tari di pendopo keraton.",
+          "Memuat imbauan agar pengunjung menjaga kebersihan situs bersejarah."
+        ],
+        kunci: 1,
+        penjelasanBahasa: "Kalimat deskripsi memaparkan sifat, bentuk, rincian fisik, atau ukuran objek secara spesifik dan faktual sehingga pembaca seolah-olah melihat langsung objek observasi.",
+        penjelasanCRT: "Pendopo Ageng Mangkunegaran merupakan salah satu pendopo kayu jati terluas di Asia Tenggara yang dibangun tanpa paku besi, simbol ketelitian arsitektur adiluhung Jawa.",
+        aspek: "Kalimat Deskripsi"
+      },
+      {
+        posId: 2,
+        pos: "Pos 2: Pura Mangkunegaran",
+        icon: "🏯",
+        kaidah: "Istilah Teknis / Register Khusus",
+        konteks: "Di langit-langit pendopo terdapat ornamen lukisan motif Kumudawati dengan delapan warna mistik yang melambangkan perlindungan batin.",
+        pertanyaan: "Kata 'Kumudawati' dalam teks laporan observasi tersebut tergolong sebagai kaidah kebahasaan...",
+        pilihan: [
+          "Verba relasional penanda sebab-akibat",
+          "Konjungsi subordinatif antarklausa",
+          "Istilah teknis/khusus (register) dalam bidang seni rupa dan simbolisme budaya Jawa",
+          "Adverbia penunjuk tempat"
+        ],
+        kunci: 2,
+        penjelasanBahasa: "Istilah teknis adalah kata atau frasa khusus yang digunakan dalam bidang tertentu (ilmu, profesi, atau tradisi kultural spesifik) yang menambah ketepatan informasi ilmiah dalam teks LHO.",
+        penjelasanCRT: "Motif Kumudawati dipercaya melambangkan tolak bala serta pengendalian delapan nafsu duniawi manusia menurut ajaran Pangeran Sambernyawa.",
+        aspek: "Istilah Teknis"
+      },
+
+      // POS 3: KAMPUNG BATIK LAWEYAN (2 SOAL)
+      {
+        posId: 3,
+        pos: "Pos 3: Kampung Batik Laweyan",
+        icon: "🧵",
+        kaidah: "Afiksasi (Imbuhan)",
+        konteks: "Para perajin secara teratur mencantingkan cairan malam panas ke permukaan kain mori berpola lunglungan.",
+        pertanyaan: "Kata berimbuhan (afiksasi) 'mencantingkan' pada kalimat observasi tersebut terbentuk dari...",
+        pilihan: [
+          "Prefiks men- + nomina 'canting' yang berubah menjadi verba aktif",
+          "Konfiks me(N)-kan + nomina dasar 'canting' yang membentuk verba bermakna 'melakukan perbuatan dengan alat'",
+          "Sufiks -kan + adjektiva 'canting' yang menyatakan intensitas rasa",
+          "Infiks -in- + nomina 'canting' yang membentuk kata sifat visual"
+        ],
+        kunci: 1,
+        penjelasanBahasa: "Afiksasi adalah pembentukan kata melalui pengimbuhan. 'Mencantingkan' berasal dari konfiks me(N)-kan + kata benda dasar 'canting' (alat batik) menghasilkan verba yang bermakna menggoreskan/menerapkan cairan malam dengan canting.",
+        penjelasanCRT: "Kampung Laweyan telah menjadi pusat kriya saudagar batik muslim sejak zaman Kerajaan Pajang (abad ke-16), melambangkan kemandirian ekonomi pribumi.",
+        aspek: "Afiksasi"
+      },
+      {
+        posId: 3,
+        pos: "Pos 3: Kampung Batik Laweyan",
+        icon: "🧵",
+        kaidah: "Kalimat Kompleks (Majemuk Bertingkat)",
+        konteks: "Meskipun lorong sempit Laweyan diapit tembok benteng tinggi bergaya Indis, suasana kampung tetap memancarkan denyut kreativitas perajin batik yang ramah.",
+        pertanyaan: "Kalimat di atas dikategorikan sebagai kalimat kompleks karena...",
+        pilihan: [
+          "Hanya memiliki satu klausa yang terdiri atas satu subjek dan satu predikat tunggal.",
+          "Terdiri atas dua klausa (klausa utama dan klausa bawahan) yang dihubungkan oleh konjungsi subordinatif pertentangan konsesif 'meskipun'.",
+          "Mengandung gaya bahasa personifikasi yang berlebihan untuk memuji warga Solo.",
+          "Tidak memiliki verba pewarta maupun verba transitif dalam susunannya."
+        ],
+        kunci: 1,
+        penjelasanBahasa: "Kalimat kompleks memiliki lebih dari satu predikat atau klausa. Kata penghubung 'meskipun' adalah konjungsi subordinatif yang menandai hubungan bertingkat antara anak kalimat dan induk kalimat.",
+        penjelasanCRT: "Tembok tinggi khas arsitektur 'benteng' di Laweyan mencerminkan privasi saudagar zaman dahulu sekaligus harmonisasi perpaduan gaya arsitektur Jawa, Eropa (Indis), dan Islam.",
+        aspek: "Kalimat Kompleks"
+      },
+
+      // POS 4: PASAR GEDE HARDJONAGORO (2 SOAL)
+      {
+        posId: 4,
+        pos: "Pos 4: Pasar Gede Hardjonagoro",
+        icon: "🏮",
+        kaidah: "Objektivitas Fakta LHO",
+        konteks: "Di lantai dasar Pasar Gede, pedagang menjual aneka kuliner tradisional seperti dawet telasih, lenjongan, dan cabai rawit dengan timbangan manual di meja kayu.",
+        pertanyaan: "Ciri bahasa teks LHO yang tercermin pada kutipan di atas adalah penyajian fakta objektif, dibuktikan dengan...",
+        pilihan: [
+          "Penggunaan kata-kata yang memuat penilaian subjektif seperti 'paling lezat' dan 'luar biasa murah'.",
+          "Penyebutan objek komoditas, lokasi spesifik, dan peralatan yang dapat diverifikasi secara faktual di lapangan tanpa prasangka emosional.",
+          "Adanya kalimat tanya retoris yang mengajak pembaca berbelanja bahan pokok.",
+          "Penggunaan sudut pandang orang pertama 'saya' dan 'kami'."
+        ],
+        kunci: 1,
+        penjelasanBahasa: "Teks LHO menuntut asas keobjektifan dan faktualitas. Kalimat di atas menyajikan rincian barang dagangan konkret yang nyata ada di lokasi tanpa hiperbola atau opini pribadi observer.",
+        penjelasanCRT: "Pasar Gede (karya arsitek Thomas Karsten tahun 1930) adalah ruang perjumpaan kultural yang merajut toleransi erat antara etnis Tionghoa Pecinan dan masyarakat Jawa Solo.",
+        aspek: "Fakta Objektif"
+      },
+      {
+        posId: 4,
+        pos: "Pos 4: Pasar Gede Hardjonagoro",
+        icon: "🏮",
+        kaidah: "Kalimat Simpleks (Tunggal)",
+        konteks: "Cermati empat opsi kalimat berikut ini!",
+        pertanyaan: "Manakah kalimat bertema Pasar Gede yang tergolong ke dalam kalimat simpleks (kalimat tunggal dengan satu struktur klausa utama S-P-O-K)?",
+        pilihan: [
+          "Aroma harum kuah santan dawet telasih memikat para pelancong dari berbagai kota.",
+          "Ketika fajar menyingsing di timur Solo, para pedagang mulai menata sayur mayur segar di lapak mereka.",
+          "Pasar Gede menyediakan bahan pokok, sedangkan toko di seberangnya menjual kue keranjang imlek.",
+          "Meskipun hari hujan lebat, pembeli tetap memadati los jamu tradisional."
+        ],
+        kunci: 0,
+        penjelasanBahasa: "Kalimat simpleks hanya memiliki satu pola klausa (satu predikat). Pola opsi A: [Aroma harum kuah santan dawet telasih] (S) [memikat] (P) [para pelancong] (O) [dari berbagai kota] (K). Opsi lain memiliki konjungsi dan lebih dari satu klausa.",
+        penjelasanCRT: "Dawet telasih Bu Dermi di Pasar Gede adalah warisan kuliner lintas generasi yang menjadi simbol keakraban sosial warga Solo.",
+        aspek: "Kalimat Simpleks"
+      },
+
+      // POS 5: TAMAN BALEKAMBANG (2 SOAL)
+      {
+        posId: 5,
+        pos: "Pos 5: Taman Balekambang",
+        icon: "🌳",
+        kaidah: "Istilah Biologis / Nomenklatur Ilmiah",
+        konteks: "Di area Partini Tuin (Taman Air Balekambang), puluhan pohon beringin tua (Ficus benjamina) menaungi kawanan rusa tutul (Axis axis) yang berkeliaran bebas.",
+        pertanyaan: "Pencantuman nama ilmiah seperti 'Ficus benjamina' dan 'Axis axis' dalam teks LHO berfungsi untuk...",
+        pilihan: [
+          "Menunjukkan ragam bahasa percakapan sehari-hari warga lokal Solo.",
+          "Memberikan akurasi klasifikasi ilmiah secara universal agar hasil observasi bersifat valid dan dapat dipertanggungjawabkan dalam ranah sains.",
+          "Menggantikan nama lokal Jawa karena bahasa daerah dianggap tidak baku.",
+          "Membuat teks laporan terkesan puitis dan imajinatif bagi pembaca remaja."
+        ],
+        kunci: 1,
+        penjelasanBahasa: "Teks LHO tergolong teks ilmiah/faktual. Penyertaan tata nama ilmiah (nomenklatur binomial) mempertegas akurasi identifikasi taksonomi flora/fauna yang diobservasi.",
+        penjelasanCRT: "Taman Balekambang dibangun KGPAA Mangkunegara VII pada 1921 sebagai wujud kasih sayang kepada putrinya (Partini dan Partinah), sekaligus paru-paru ekologis kota.",
+        aspek: "Istilah Ilmiah"
+      },
+      {
+        posId: 5,
+        pos: "Pos 5: Taman Balekambang",
+        icon: "🌳",
+        kaidah: "Kalimat Deskripsi Panca-Indra",
+        konteks: "Gemericik air kolam buatan berpadu dengan hembusan angin sejuk yang menggoyangkan dedaunan hijau rindang di tepi Taman Balekambang.",
+        pertanyaan: "Kutipan teks LHO di atas melibatkan cerapan panca-indra berupa...",
+        pilihan: [
+          "Penglihatan saja tanpa indra peraba",
+          "Pendengaran (auditori), perabaan/suhu (taktil), dan penglihatan (visual)",
+          "Pengecapan (gustatori) dan penciuman (olfaktori)",
+          "Penglihatan dan gerak kinetik semata"
+        ],
+        kunci: 1,
+        penjelasanBahasa: "'Gemericik air' melibatkan indra pendengaran, 'angin sejuk' melibatkan indra peraba kulit, dan 'dedaunan hijau rindang' melibatkan indra penglihatan. Ketiganya memperkuat kekuatan deskriptif teks LHO.",
+        penjelasanCRT: "Kearifan lingkungan Jawa memandang taman air bukan semata tempat hiburan, melainkan ruang memayu hayuning bawana (menjaga keselarasan semesta).",
+        aspek: "Deskripsi Indrawi"
+      }
+    ];
+
+    const landmarks = [
+      { id: 1, name: "Keraton Solo", icon: "👑" },
+      { id: 2, name: "Mangkunegaran", icon: "🏯" },
+      { id: 3, name: "Laweyan", icon: "🧵" },
+      { id: 4, name: "Pasar Gede", icon: "🏮" },
+      { id: 5, name: "Balekambang", icon: "🌳" }
+    ];
+
+    // STATE GAME & IDENTITAS SISWA
+    let studentData = {
+      nama: "",
+      noAbsen: "",
+      kelas: "X-1"
+    };
+
+    let currentQuestion = 0;
+    let score = 0;
+    let answered = false;
+    let correctCount = 0;
+    let answerHistory = [];
+    let isSoundActive = true;
+    let googleSheetWebhookUrl = localStorage.getItem("solo_quiz_sheet_webhook") || "";
+
+    // DOM ELEMENTS
+    const screenLobby = document.getElementById("screen-lobby");
+    const screenGame = document.getElementById("screen-game");
+    const screenResult = document.getElementById("screen-result");
+
+    const inputName = document.getElementById("student-name");
+    const inputNumber = document.getElementById("student-number");
+    const inputClass = document.getElementById("student-class");
+    const formErrorMsg = document.getElementById("form-error-msg");
+
+    const activeStudentBadge = document.getElementById("active-student-badge");
+    const headerStudentName = document.getElementById("header-student-name");
+    const headerSubtitle = document.getElementById("header-subtitle");
+
+    const resStudentName = document.getElementById("res-student-name");
+    const resStudentMeta = document.getElementById("res-student-meta");
+
+    const btnStart = document.getElementById("btn-start");
+    const btnNext = document.getElementById("btn-next");
+    const btnRestart = document.getElementById("btn-restart");
+    const btnSoundToggle = document.getElementById("btn-sound-toggle");
+    const soundIcon = document.getElementById("sound-icon");
+
+    const btnSheetSetting = document.getElementById("btn-sheet-setting");
+    const sheetModal = document.getElementById("sheet-modal");
+    const btnCloseSheetModal = document.getElementById("btn-close-sheet-modal");
+    const inputSheetUrl = document.getElementById("input-sheet-url");
+    const btnSaveSheetUrl = document.getElementById("btn-save-sheet-url");
+    const btnCopyScriptCode = document.getElementById("btn-copy-script-code");
+
+    const btnSendSheet = document.getElementById("btn-send-sheet");
+    const btnCopyTsv = document.getElementById("btn-copy-tsv");
+    const btnDownloadCsv = document.getElementById("btn-download-csv");
+    const webhookFeedbackBox = document.getElementById("webhook-feedback-box");
+    const sheetStatusBadge = document.getElementById("sheet-status-badge");
+
+    const btnGlossaryModal = document.getElementById("btn-glossary-modal");
+    const btnCloseGlossary = document.getElementById("btn-close-glossary");
+    const glossaryModal = document.getElementById("glossary-modal");
+
+    const scoreDisplay = document.getElementById("score-display");
+    const correctDisplay = document.getElementById("correct-display");
+    const progressDisplay = document.getElementById("progress-display");
+    const trailContainer = document.getElementById("trail-container");
+
+    const zoneIcon = document.getElementById("zone-icon");
+    const zoneTag = document.getElementById("zone-tag");
+    const targetRule = document.getElementById("target-rule");
+    const currentQIndex = document.getElementById("current-q-index");
+    const contextText = document.getElementById("context-text");
+    const questionText = document.getElementById("question-text");
+    const optionsContainer = document.getElementById("options-container");
+
+    const feedbackBox = document.getElementById("feedback-box");
+    const feedbackTitle = document.getElementById("feedback-title");
+    const feedbackIcon = document.getElementById("feedback-icon");
+    const feedbackStatus = document.getElementById("feedback-status");
+    const feedbackLinguistic = document.getElementById("feedback-linguistic");
+    const feedbackCultural = document.getElementById("feedback-cultural");
+
+    // WEB AUDIO API GAMELAN BELL CHIME
+    function playGamelanChime(isCorrect = true) {
+      if (!isSoundActive) return;
+      try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContext) return;
+        const ctx = new AudioContext();
+        const now = ctx.currentTime;
+
+        const freqs = isCorrect ? [528, 660, 792] : [340, 310];
+
+        freqs.forEach((freq, idx) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+
+          osc.type = "sine";
+          osc.frequency.setValueAtTime(freq, now + idx * 0.08);
+
+          gain.gain.setValueAtTime(0.18, now + idx * 0.08);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + idx * 0.08 + 1.2);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+
+          osc.start(now + idx * 0.08);
+          osc.stop(now + idx * 0.08 + 1.25);
+        });
+      } catch (e) {
+        console.warn("AudioContext unsupported", e);
+      }
+    }
+
+    // INIT LISTENERS
+    btnStart.addEventListener("click", validateAndStart);
+    btnNext.addEventListener("click", nextQuestion);
+    btnRestart.addEventListener("click", resetGame);
+
+    btnSoundToggle.addEventListener("click", () => {
+      isSoundActive = !isSoundActive;
+      soundIcon.innerText = isSoundActive ? "🔔" : "🔕";
+      if (isSoundActive) playGamelanChime(true);
+    });
+
+    btnGlossaryModal.addEventListener("click", () => {
+      glossaryModal.classList.remove("hidden");
+    });
+    btnCloseGlossary.addEventListener("click", () => {
+      glossaryModal.classList.add("hidden");
+    });
+
+    btnSheetSetting.addEventListener("click", () => {
+      inputSheetUrl.value = googleSheetWebhookUrl;
+      sheetModal.classList.remove("hidden");
+    });
+    btnCloseSheetModal.addEventListener("click", () => {
+      sheetModal.classList.add("hidden");
+    });
+
+    btnSaveSheetUrl.addEventListener("click", () => {
+      googleSheetWebhookUrl = inputSheetUrl.value.trim();
+      localStorage.setItem("solo_quiz_sheet_webhook", googleSheetWebhookUrl);
+      sheetModal.classList.add("hidden");
+      alert("✅ URL Spreadsheet Guru berhasil disimpan!");
+    });
+
+    btnCopyScriptCode.addEventListener("click", copyGoogleAppsScriptCode);
+    btnSendSheet.addEventListener("click", sendToGoogleSheet);
+    btnCopyTsv.addEventListener("click", copyRowToClipboard);
+    btnDownloadCsv.addEventListener("click", downloadCSV);
+
+    function validateAndStart() {
+      const name = inputName.value.trim();
+      const num = inputNumber.value.trim();
+      const cls = inputClass.value.trim() || "X-1";
+
+      if (!name || !num) {
+        formErrorMsg.classList.remove("hidden");
+        return;
+      }
+
+      formErrorMsg.classList.add("hidden");
+      studentData.nama = name;
+      studentData.noAbsen = num;
+      studentData.kelas = cls;
+
+      headerStudentName.innerText = `${name} (No. ${num} • ${cls})`;
+      activeStudentBadge.classList.remove("hidden");
+      headerSubtitle.classList.add("hidden");
+
+      playGamelanChime(true);
+      startGame();
+    }
+
+    function renderTrail() {
+      const currentPosId = quizData[currentQuestion].posId;
+      trailContainer.innerHTML = "";
+
+      landmarks.forEach((lm, idx) => {
+        const isCurrent = lm.id === currentPosId;
+        const isPast = lm.id < currentPosId;
+
+        const item = document.createElement("div");
+        item.className = `flex items-center gap-1.5 transition ${
+          isCurrent 
+            ? "text-amber-400 font-bold scale-105" 
+            : isPast 
+            ? "text-emerald-400 font-medium" 
+            : "text-amber-300/40"
+        }`;
+        item.innerHTML = `
+          <span class="text-sm">${isPast ? '✓' : lm.icon}</span>
+          <span>${lm.name}</span>
+          ${idx < landmarks.length - 1 ? '<span class="text-amber-700/60 ml-2">❯</span>' : ''}
+        `;
+        trailContainer.appendChild(item);
+      });
+    }
+
+    function startGame() {
+      currentQuestion = 0;
+      score = 0;
+      correctCount = 0;
+      answerHistory = [];
+      updateHUD();
+
+      screenLobby.classList.add("hidden");
+      screenResult.classList.add("hidden");
+      screenGame.classList.remove("hidden");
+      renderQuestion();
+    }
+
+    function updateHUD() {
+      scoreDisplay.innerText = score;
+      correctDisplay.innerText = correctCount;
+      progressDisplay.innerText = `${currentQuestion + 1}/10`;
+      renderTrail();
+    }
+
+    function renderQuestion() {
+      answered = false;
+      feedbackBox.classList.add("hidden");
+
+      const q = quizData[currentQuestion];
+      updateHUD();
+
+      zoneIcon.innerText = q.icon;
+      zoneTag.innerText = q.pos;
+      targetRule.innerText = "Kaidah: " + q.kaidah;
+      currentQIndex.innerText = currentQuestion + 1;
+      contextText.innerText = `"${q.konteks}"`;
+      questionText.innerText = q.pertanyaan;
+
+      // Render Options
+      optionsContainer.innerHTML = "";
+      const letters = ["A", "B", "C", "D"];
+
+      q.pilihan.forEach((optText, idx) => {
+        const btn = document.createElement("button");
+        btn.className = "w-full text-left p-3.5 rounded-xl border border-amber-800/40 bg-[#1c1109]/90 hover:bg-amber-950/60 hover:border-amber-500/60 transition flex items-start gap-3 group focus:outline-none focus:ring-2 focus:ring-amber-500/50";
+        btn.innerHTML = `
+          <span class="w-6 h-6 rounded-full bg-amber-900/40 border border-amber-600/50 group-hover:bg-amber-500/30 group-hover:border-amber-400 text-amber-200 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+            ${letters[idx]}
+          </span>
+          <span class="text-xs md:text-sm text-amber-100/90 leading-relaxed">${optText}</span>
+        `;
+        btn.addEventListener("click", () => handleAnswer(idx));
+        optionsContainer.appendChild(btn);
+      });
+    }
+
+    function handleAnswer(selectedIndex) {
+      if (answered) return;
+      answered = true;
+
+      const q = quizData[currentQuestion];
+      const isCorrect = selectedIndex === q.kunci;
+      const optionButtons = optionsContainer.querySelectorAll("button");
+
+      playGamelanChime(isCorrect);
+
+      optionButtons.forEach((btn, idx) => {
+        btn.disabled = true;
+        btn.classList.remove("hover:bg-amber-950/60", "hover:border-amber-500/60");
+
+        if (idx === q.kunci) {
+          btn.classList.add("bg-emerald-950/70", "border-emerald-500", "text-emerald-200");
+        } else if (idx === selectedIndex) {
+          btn.classList.add("bg-rose-950/70", "border-rose-500", "text-rose-200");
+        }
+      });
+
+      if (isCorrect) {
+        score += 100;
+        correctCount++;
+        feedbackBox.className = "rounded-xl border border-emerald-500/50 bg-emerald-950/40 p-4 space-y-2 text-xs md:text-sm shadow-inner";
+        feedbackIcon.innerText = "🌟";
+        feedbackStatus.innerText = "Luar Biasa, Analisis Tepat!";
+        feedbackStatus.className = "font-bold text-emerald-400";
+      } else {
+        feedbackBox.className = "rounded-xl border border-amber-600/50 bg-amber-950/40 p-4 space-y-2 text-xs md:text-sm shadow-inner";
+        feedbackIcon.innerText = "💡";
+        feedbackStatus.innerText = "Mari Pelajari Kaidahnya!";
+        feedbackStatus.className = "font-bold text-amber-300";
+      }
+
+      answerHistory.push({
+        aspek: q.aspek,
+        isCorrect: isCorrect
+      });
+
+      feedbackLinguistic.innerHTML = `<strong class="text-amber-200">Analisis Kaidah LHO:</strong> ${q.penjelasanBahasa}`;
+      feedbackCultural.innerText = q.penjelasanCRT;
+      feedbackBox.classList.remove("hidden");
+
+      updateHUD();
+    }
+
+    function nextQuestion() {
+      if (currentQuestion < quizData.length - 1) {
+        currentQuestion++;
+        renderQuestion();
+      } else {
+        showResults();
+      }
+    }
+
+    function showResults() {
+      playGamelanChime(true);
+      screenGame.classList.add("hidden");
+      screenResult.classList.remove("hidden");
+
+      resStudentName.innerText = studentData.nama;
+      resStudentMeta.innerText = `Absen: ${studentData.noAbsen} • Kelas: ${studentData.kelas}`;
+
+      document.getElementById("final-score").innerText = score;
+      document.getElementById("final-accuracy").innerText = `${correctCount} / 10`;
+
+      const titleElem = document.getElementById("final-title");
+      if (score >= 900) {
+        titleElem.innerText = "Duta Pusaka Bahasa Surakarta (Master)";
+      } else if (score >= 700) {
+        titleElem.innerText = "Abdi Pengamat Budaya Cakap";
+      } else {
+        titleElem.innerText = "Magang Peneliti Sastra Tradisi";
+      }
+
+      const diagElem = document.getElementById("diagnostic-summary");
+      diagElem.innerHTML = "";
+
+      answerHistory.forEach((item, idx) => {
+        const div = document.createElement("div");
+        div.className = "flex items-center justify-between p-2 rounded-lg bg-[#140c07] border border-amber-900/40";
+        div.innerHTML = `
+          <span>${idx + 1}. ${item.aspek}</span>
+          <span>${item.isCorrect ? '<strong class="text-emerald-400">✓ Tuntas</strong>' : '<span class="text-amber-400">⚡ Perlu Remediasi</span>'}</span>
+        `;
+        diagElem.appendChild(div);
+      });
+
+      // Reset feedback box status
+      webhookFeedbackBox.classList.add("hidden");
+      sheetStatusBadge.innerText = "Siap Disimpan";
+      sheetStatusBadge.className = "text-[10px] bg-emerald-950 px-2 py-0.5 rounded border border-emerald-500/40 text-emerald-300 font-semibold";
+
+      // Jika URL Google Sheet sudah tersetel, kirim otomatis!
+      if (googleSheetWebhookUrl) {
+        sendToGoogleSheet();
+      }
+    }
+
+    // ================= FITUR INTEGRASI GOOGLE SPREADSHEET =================
+
+    function getPayload() {
+      const now = new Date();
+      const timestamp = now.toLocaleDateString('id-ID') + ' ' + now.toLocaleTimeString('id-ID');
+      const details = answerHistory.map((h, i) => `S${i+1}:${h.isCorrect ? '1' : '0'}`).join(', ');
+
+      return {
+        timestamp: timestamp,
+        nama: studentData.nama,
+        noAbsen: studentData.noAbsen,
+        kelas: studentData.kelas,
+        skor: score,
+        akurasi: `${correctCount}/10`,
+        gelar: document.getElementById("final-title").innerText,
+        detail: details
+      };
+    }
+
+    function sendToGoogleSheet() {
+      if (!googleSheetWebhookUrl) {
+        sheetModal.classList.remove("hidden");
+        return;
+      }
+
+      btnSendSheet.disabled = true;
+      btnSendSheet.innerHTML = "<span>⏳</span> Mengirim...";
+      webhookFeedbackBox.classList.remove("hidden");
+      webhookFeedbackBox.className = "p-2.5 rounded-xl text-xs bg-emerald-950/60 border border-emerald-700/60 text-emerald-300 flex items-center gap-2";
+      webhookFeedbackBox.innerHTML = "<span>⏳</span> Menghubungkan ke Google Spreadsheet guru...";
+
+      const payload = getPayload();
+
+      // Kirim via fetch POST no-cors ke Google Apps Script Web App
+      fetch(googleSheetWebhookUrl, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(() => {
+        btnSendSheet.disabled = false;
+        btnSendSheet.innerHTML = "<span>✅</span> Terkirim ke Spreadsheet";
+        sheetStatusBadge.innerText = "Tersimpan di Sheet ✅";
+        sheetStatusBadge.className = "text-[10px] bg-emerald-800 text-white px-2 py-0.5 rounded font-bold";
+        webhookFeedbackBox.className = "p-2.5 rounded-xl text-xs bg-emerald-900/50 border border-emerald-500 text-emerald-200 flex items-center gap-2";
+        webhookFeedbackBox.innerHTML = `<span>✅</span> <strong>Berhasil!</strong> Nilai atas nama <strong>${studentData.nama}</strong> telah tersimpan di Google Spreadsheet guru.`;
+      })
+      .catch((err) => {
+        btnSendSheet.disabled = false;
+        btnSendSheet.innerHTML = "<span>🚀</span> Kirim ke Spreadsheet";
+        webhookFeedbackBox.className = "p-2.5 rounded-xl text-xs bg-amber-950/70 border border-amber-600 text-amber-200 flex items-center gap-2";
+        webhookFeedbackBox.innerHTML = "<span>⚠️</span> Pengiriman otomatis tertahan koneksi. Silakan gunakan tombol <strong>Salin Baris</strong> atau <strong>Unduh File</strong> di bawah!";
+      });
+    }
+
+    function copyRowToClipboard() {
+      const p = getPayload();
+      // Format Tab-Separated Value (TSV): Tinggal Paste (Ctrl+V) langsung rapi di baris sel Spreadsheet
+      const tsvRow = `${p.timestamp}\t${p.nama}\t${p.noAbsen}\t${p.kelas}\t${p.skor}\t${p.akurasi}\t${p.gelar}\t${p.detail}`;
+
+      navigator.clipboard.writeText(tsvRow).then(() => {
+        btnCopyTsv.innerHTML = "<span>✅</span> Tersalin!";
+        setTimeout(() => {
+          btnCopyTsv.innerHTML = "<span>📋</span> Salin Baris (Paste)";
+        }, 2500);
+        alert(`✅ Data nilai ${p.nama} berhasil disalin!\n\nGuru dapat langsung membuka Google Spreadsheet dan menekan Ctrl+V pada sel baris yang kosong.`);
+      }).catch(() => {
+        prompt("Salin data berikut untuk ditempel di Spreadsheet:", tsvRow);
+      });
+    }
+
+    function downloadCSV() {
+      const p = getPayload();
+      const csvContent = "data:text/csv;charset=utf-8," 
+        + "Waktu,Nama Lengkap,No Absen,Kelas,Skor,Ketepatan,Gelar,Rincian Jawaban\n"
+        + `"${p.timestamp}","${p.nama}","${p.noAbsen}","${p.kelas}","${p.skor}","${p.akurasi}","${p.gelar}","${p.detail}"\n`;
+
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement("a");
+      link.setAttribute("href", encodedUri);
+      link.setAttribute("download", `Nilai_LHO_${studentData.nama.replace(/\s+/g, '_')}_Absen${studentData.noAbsen}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function copyGoogleAppsScriptCode() {
+      const scriptCode = `// KODE GOOGLE APPS SCRIPT UNTUK GURU
+// Tempel di Google Spreadsheet: Ekstensi > Apps Script
+function doPost(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var data = JSON.parse(e.postData.contents);
+
+  // Buat judul kolom otomatis jika sheet masih kosong
+  if (sheet.getLastRow() === 0) {
+    sheet.appendRow([
+      "Waktu Pengamatan",
+      "Nama Lengkap",
+      "No. Absen",
+      "Kelas",
+      "Skor",
+      "Ketepatan",
+      "Gelar Formatif",
+      "Rincian Jawaban (S1-S10)"
+    ]);
+    sheet.getRange(1, 1, 1, 8).setFontWeight("bold").setBackground("#d4af37");
+  }
+
+  // Rekam baris baru nilai siswa
+  sheet.appendRow([
+    data.timestamp,
+    data.nama,
+    data.noAbsen,
+    data.kelas,
+    data.skor,
+    data.akurasi,
+    data.gelar,
+    data.detail
+  ]);
+
+  return ContentService.createTextOutput(JSON.stringify({ status: "success" }))
+    .setMimeType(ContentService.MimeType.JSON);
+}`;
+
+      navigator.clipboard.writeText(scriptCode).then(() => {
+        alert("✅ Kode Google Apps Script telah disalin ke clipboard! Silakan buka Google Spreadsheet > Ekstensi > Apps Script dan tempelkan kode ini.");
+      }).catch(() => {
+        prompt("Salin kode Google Apps Script berikut:", scriptCode);
+      });
+    }
+
+    function resetGame() {
+      screenResult.classList.add("hidden");
+      screenGame.classList.add("hidden");
+      screenLobby.classList.remove("hidden");
+      inputName.value = "";
+      inputNumber.value = "";
+      activeStudentBadge.classList.add("hidden");
+      headerSubtitle.classList.remove("hidden");
+      currentQuestion = 0;
+      score = 0;
+      updateHUD();
+    }
+  </script>
+</body>
+</html>
