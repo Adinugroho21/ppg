@@ -871,7 +871,7 @@ function updateLHORealtimeView() {
   const dbText = document.getElementById('paperDbText');
   const dmText = document.getElementById('paperDmText');
 
-  const student = AppState.observationData.studentName || 'Siswa Kelas X';
+  const student = AppState.observationData.studentName || 'Kelompok Siswa Kelas X';
   const sClass = AppState.observationData.studentClass || 'X-1';
   const sDate = AppState.observationData.observationDate || new Date().toISOString().split('T')[0];
 
@@ -879,7 +879,7 @@ function updateLHORealtimeView() {
     titleDisplay.textContent = `Laporan Hasil Observasi: ${loc.name}`;
   }
   if (metaDisplay) {
-    metaDisplay.textContent = `Penulis: ${student} (${sClass}) • Tanggal Pengamatan: ${sDate} • Objek: Budaya Surakarta`;
+    metaDisplay.textContent = `Kelompok Pengamat: ${student} • Kelas: ${sClass} • Tanggal Pengamatan: ${sDate} • Objek Budaya: ${loc.name}`;
   }
 
   const pUmum = document.getElementById('lhoPernyataanUmum');
@@ -1371,8 +1371,8 @@ function openStudentIdModal() {
   if (!modal) return;
   
   // Fill inputs with current values
-  const nameInput = document.getElementById('modalStudentNameInput');
-  const classInput = document.getElementById('modalStudentClassInput');
+  const nameInput = document.getElementById('modalStudentNameInput') || document.getElementById('modalStudentName');
+  const classInput = document.getElementById('modalStudentClassInput') || document.getElementById('modalStudentClass');
   if (nameInput) nameInput.value = AppState.observationData.studentName || '';
   if (classInput) classInput.value = AppState.observationData.studentClass || 'X-1';
 
@@ -1397,14 +1397,14 @@ function closeStudentIdModal(event) {
 }
 
 function saveStudentIdentityFromModal() {
-  const nameInput = document.getElementById('modalStudentNameInput');
-  const classInput = document.getElementById('modalStudentClassInput');
+  const nameInput = document.getElementById('modalStudentNameInput') || document.getElementById('modalStudentName');
+  const classInput = document.getElementById('modalStudentClassInput') || document.getElementById('modalStudentClass');
   
   const rawName = nameInput ? nameInput.value.trim() : '';
   const rawClass = classInput ? classInput.value.trim() : 'X-1';
 
   if (!rawName) {
-    alert('Mohon masukkan nama lengkap Anda agar progres dapat tercatat dengan benar.');
+    alert('Mohon masukkan nama lengkap siswa agar progres belajar dapat tercatat.');
     return;
   }
 
@@ -1413,25 +1413,25 @@ function saveStudentIdentityFromModal() {
   StorageManager.save();
 
   // Also sync inputs in sec-catat and sec-susun
-  const sheetName = document.getElementById('sheetStudentName');
-  const sheetClass = document.getElementById('sheetStudentClass');
+  const sheetName = document.getElementById('studentNameInput') || document.getElementById('sheetStudentName');
+  const sheetClass = document.getElementById('studentClassInput') || document.getElementById('sheetStudentClass');
   if (sheetName) sheetName.value = rawName;
   if (sheetClass) sheetClass.value = rawClass;
 
   updateStudentIdentityDisplay();
   closeStudentIdModal();
-  showToast(`Identitas tersimpan: ${rawName} (${rawClass})`, '👤');
+  showToast(`Identitas siswa tersimpan: ${rawName} (${rawClass})`, '👤');
   AudioEffects.playSuccess();
 }
 
 function updateStudentIdentityDisplay() {
-  const nameDisplay = document.getElementById('navbarStudentName');
-  const classDisplay = document.getElementById('navbarStudentClass');
+  const nameDisplay = document.getElementById('navStudentName') || document.getElementById('navbarStudentName');
+  const classDisplay = document.getElementById('navStudentClass') || document.getElementById('navbarStudentClass');
   const currentName = AppState.observationData.studentName;
   const currentClass = AppState.observationData.studentClass;
 
   if (nameDisplay) {
-    nameDisplay.textContent = currentName ? currentName : 'Nama Belum Diisi';
+    nameDisplay.textContent = currentName ? currentName : 'Belum Isi Nama';
   }
   if (classDisplay) {
     classDisplay.textContent = currentName ? `Kelas ${currentClass}` : 'Klik untuk lengkapi';

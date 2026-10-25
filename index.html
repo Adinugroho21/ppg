@@ -55,7 +55,7 @@
       <div class="brand-text-box">
         <h1>
           Jejak Observasi
-          <span class="brand-badge">Solo Hadiningrat • SMA X</span>
+          <span class="brand-badge">Surakarta • SMA X</span>
         </h1>
         <div class="brand-tagline-mini">Amati Budayanya, Temukan Faktanya, Tulis Laporannya.</div>
       </div>
@@ -74,6 +74,11 @@
     </ul>
 
     <div class="nav-actions">
+      <!-- Teacher Portal Button -->
+      <button class="nav-btn-portal-guru" onclick="openTeacherPortalModal()" title="Portal Khusus Guru (Masuk dengan PIN)">
+        <span>🔐</span> Portal Guru
+      </button>
+
       <!-- Quick Student Identity Pill & Edit Button -->
       <button class="student-identity-pill" onclick="openStudentIdModal()" title="Klik untuk melengkapi identitas murid & melihat rekap kegiatan">
         <span class="student-id-avatar">👤</span>
@@ -82,11 +87,6 @@
           <span class="student-id-class" id="navStudentClass">Kelas X</span>
         </div>
         <span class="student-id-badge-edit">✏️</span>
-      </button>
-
-      <!-- Teacher Portal Button -->
-      <button class="nav-btn-portal-guru" onclick="openTeacherPortalModal()" title="Portal Khusus Guru (Masuk dengan PIN)">
-        <span>🔐</span> Portal Guru
       </button>
 
       <!-- Step Indicator Badge -->
@@ -115,38 +115,10 @@
       
       <!-- Hero Banner -->
       <div class="hero-wrapper hero-wrapper-img-bg">
-        <div class="hero-curtain-strip"></div>
-        <div class="hero-overlay-scrim"></div>
         
-        <!-- Wayang Gunungan Cultural Watermark Silhouette -->
-        <div class="wayang-gunungan-watermark no-print" aria-hidden="true">
-          <svg viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
-            <path d="M50 0 C42 22 28 42 16 65 C8 82 2 102 2 124 C18 126 34 128 50 128 C66 128 82 126 98 124 C98 102 92 82 84 65 C72 42 58 22 50 0 Z" 
-                  fill="url(#gununganGold)" opacity="0.16"/>
-            <path d="M50 8 C44 26 32 44 22 66 C15 81 10 98 10 118 C23 120 36 122 50 122 C64 122 77 120 90 118 C90 98 85 81 78 66 C68 44 56 26 50 8 Z" 
-                  fill="none" stroke="#CBA02F" stroke-width="1.2" opacity="0.3"/>
-            <!-- Pohon Hayat Tree of Life Center Lines -->
-            <path d="M50 18 L50 116 M50 50 Q36 40 28 56 M50 68 Q34 60 26 78 M50 86 Q35 78 26 96 M50 50 Q64 40 72 56 M50 68 Q66 60 74 78 M50 86 Q65 78 74 96" 
-                  fill="none" stroke="#CBA02F" stroke-width="0.8" opacity="0.25"/>
-            <!-- Gate of Keraton at Base -->
-            <rect x="42" y="100" width="16" height="20" rx="3" fill="none" stroke="#825F3E" stroke-width="1.2" opacity="0.35"/>
-            <defs>
-              <linearGradient id="gununganGold" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#E9C667"/>
-                <stop offset="50%" stop-color="#CBA02F"/>
-                <stop offset="100%" stop-color="#825F3E"/>
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
-
-        <!-- Ornamen Batik Sudut Parang Rusak -->
-        <div class="batik-corner-ornament top-left"></div>
-        <div class="batik-corner-ornament bottom-right"></div>
-        
-        <div class="hero-grid-layout">
-          <!-- Text Content -->
-          <div class="hero-content-box">
+        <div class="hero-grid-layout hero-grid-single">
+          <!-- Text Content Menimpa Langsung Background -->
+          <div class="hero-content-box hero-content-direct">
             <div class="hero-pill-tag">
               <span class="jawa-gunungan-mini-icon">🪘</span> Kurikulum Merdeka • Bahasa Indonesia SMA Kelas X
             </div>
@@ -179,36 +151,6 @@
               <span class="cultural-pill" title="Warisan Batik Tertua">🧵 Batik Laweyan</span>
               <span class="cultural-pill" title="Harmoni Akulturasi">🏮 Pasar Gede</span>
               <span class="cultural-pill" title="Oase Konservasi Hayati">🌿 Balekambang</span>
-            </div>
-          </div>
-
-          <!-- Interactive Visual Card with Solo Frame -->
-          <div class="hero-visual-card">
-            <div class="hero-image-frame">
-              <img src="assets/beranda-bg.jpg" alt="Pusaka Budaya Keraton & Warisan Surakarta Hadiningrat" class="hero-main-featured-img">
-              <div class="hero-img-badge-corner">
-                <span>✨</span> Pusaka Adiluhung Solo
-              </div>
-              <div class="hero-img-caption-strip">
-                <strong>Pusaka Budaya Kota Surakarta</strong>
-                <span>Pusat peradaban Mataram Islam & kearifan lokal Jawa</span>
-              </div>
-            </div>
-            <div class="hero-card-footer">
-              <div class="hero-stat-item">
-                <span class="hero-stat-num">5</span>
-                <span class="hero-stat-label">Cagar Budaya</span>
-              </div>
-              <div class="hero-stat-sep"></div>
-              <div class="hero-stat-item">
-                <span class="hero-stat-num">100%</span>
-                <span class="hero-stat-label">Fakta Teruji</span>
-              </div>
-              <div class="hero-stat-sep"></div>
-              <div class="hero-stat-item">
-                <span class="hero-stat-num">Fase E</span>
-                <span class="hero-stat-label">SMA Kelas X</span>
-              </div>
             </div>
           </div>
         </div>
@@ -1027,7 +969,7 @@
           <!-- Interactive Illustrated Map of Surakarta with Clickable Hotspots -->
           <div class="interactive-image-map-container" id="imageMapContainer">
             <div class="map-image-holder">
-              <img src="assets/peta-surakarta.jpg" alt="Peta Ilustrasi Cagar Budaya Surakarta" class="map-main-img" id="surakartaMapImg">
+              <img src="assets/peta-surakarta-baru.jpg" alt="Peta Jelajah Objek Budaya Kota Surakarta" class="map-main-img" id="surakartaMapImg">
               
               <!-- Map Hotspot Pins Overlay -->
               <div class="map-pins-layer" id="mapPinsLayer">
@@ -1154,12 +1096,12 @@
 
       <div class="sheet-container">
         
-        <!-- Header Identitas Siswa -->
+        <!-- Header Identitas Siswa / Kelompok -->
         <div class="sheet-header-box">
           <div>
-            <h3 style="font-size: 1.3rem; color: #3D2917;">Lembar Kerja Peserta Didik (LKPD) Observasi</h3>
+            <h3 style="font-size: 1.3rem; color: #3D2917;">Lembar Kerja Peserta Didik (LKPD) Observasi Kelompok</h3>
             <div style="font-size: 0.85rem; color: #6B6258; margin-top: 0.2rem;" id="sheetLocationBadge">
-              Objek Observasi: Keraton Surakarta
+              Objek Observasi: Taman Balekambang
             </div>
           </div>
           <button class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.82rem;" onclick="fillSampleFacts()">
@@ -1168,12 +1110,15 @@
         </div>
 
         <div class="sheet-student-info">
-          <div class="student-input-group">
-            <label>Nama Lengkap Siswa</label>
-            <input type="text" id="studentNameInput" placeholder="Contoh: Raden Ayu Sekar" value="Sekar Ayu Kinanthi">
+          <div class="student-input-group" style="grid-column: 1 / -1;">
+            <label>👥 Nama Anggota Kelompok</label>
+            <input type="text" id="studentNameInput" placeholder="Contoh: 1. Sekar Ayu, 2. Bagas Satria, 3. Dian Pratama, 4. Siti Rahma" value="">
+            <span style="font-size: 0.72rem; color: var(--text-muted); margin-top: 4px; display: block;">
+              *Tuliskan nama seluruh anggota kelompok yang berkolaborasi dalam observasi ini
+            </span>
           </div>
           <div class="student-input-group">
-            <label>Kelas (Fase E)</label>
+            <label>Kelas</label>
             <select id="studentClassInput">
               <option value="X-1">X-1 (Sepuluh Satu)</option>
               <option value="X-2">X-2 (Sepuluh Dua)</option>
@@ -1181,6 +1126,12 @@
               <option value="X-4">X-4 (Sepuluh Empat)</option>
               <option value="X-5">X-5 (Sepuluh Lima)</option>
               <option value="X-6">X-6 (Sepuluh Enam)</option>
+              <option value="X-7">X-7 (Sepuluh Tujuh)</option>
+              <option value="X-8">X-8 (Sepuluh Delapan)</option>
+              <option value="X-9">X-9 (Sepuluh Sembilan)</option>
+              <option value="X-10">X-10 (Sepuluh Sepuluh)</option>
+              <option value="X-11">X-11 (Sepuluh Sebelas)</option>
+              <option value="X-12">X-12 (Sepuluh Dua Belas)</option>
             </select>
           </div>
           <div class="student-input-group">
@@ -1727,9 +1678,6 @@
             <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">
               Masukkan PIN keamanan guru untuk mengakses rekap seluruh kelas dan pengaturan Spreadsheet.
             </p>
-            <div style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--indigo-600); font-weight: 700;">
-              💡 PIN Default Guru: <strong>1234</strong> (Dapat diubah kapan saja)
-            </div>
           </div>
 
           <div style="display: flex; gap: 0.75rem; max-width: 340px; margin: 0 auto;">

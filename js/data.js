@@ -6,32 +6,32 @@
 
 const LOCATIONS_DATA = [
   {
-    id: "keraton",
-    name: "Keraton Surakarta Hadiningrat",
-    category: "Istana & Pusat Kebudayaan Jawa",
-    established: "1745 M",
-    founder: "Sri Susuhunan Pakubuwana II",
-    address: "Kelurahan Baluwarti, Kecamatan Pasar Kliwon, Kota Surakarta",
-    mapCoords: { x: 58, y: 68 }, // Coordinates for Surakarta Illustrated Map
-    tagline: "Pusat peradaban Mataram Islam dan episentrum adat tradisi Jawa di Surakarta",
-    thumbnail: "https://img.youtube.com/vi/h_9AyR1hel0/hqdefault.jpg",
-    youtubeId: "h_9AyR1hel0",
-    embedUrl: "https://www.youtube.com/embed/h_9AyR1hel0",
-    youtubeUrl: "https://www.youtube.com/watch?v=h_9AyR1hel0",
-    channelName: "Pesona Indonesia / Pemkot Surakarta",
-    description: "Keraton Surakarta Hadiningrat merupakan istana resmi Kasunanan Surakarta yang didirikan pada tahun 1745. Kompleks keraton ini menyimpan ribuan koleksi pusaka, arsitektur perpaduan Jawa klasik dan Eropa, serta menjadi saksi peralihan sejarah Mataram Islam.",
+    id: "balekambang",
+    name: "Taman Balekambang",
+    category: "Taman Botani, Konservasi Alam & Seni Budaya",
+    established: "1921 M",
+    founder: "KGPAA Mangkunegara VII",
+    address: "Jalan Balekambang No. 1, Manahan, Kecamatan Banjarsari, Kota Surakarta",
+    mapCoords: { x: 23, y: 32 }, // Posisi di peta baru: kiri atas (Taman Balekambang)
+    tagline: "Oase hijau bersejarah yang dipersembahkan untuk kedua putri Adipati Mangkunegara VII",
+    thumbnail: "https://img.youtube.com/vi/fprOycbIlJg/hqdefault.jpg",
+    youtubeId: "fprOycbIlJg",
+    embedUrl: "https://www.youtube.com/embed/fprOycbIlJg",
+    youtubeUrl: "https://www.youtube.com/watch?v=fprOycbIlJg",
+    channelName: "Pesona Surakarta / Humas Surakarta",
+    description: "Taman Balekambang dibangun pada 26 Oktober 1921 oleh KGPAA Mangkunegara VII sebagai wujud cinta kasih kepada kedua putrinya, GRAy Partini dan GRAy Partinah. Kini menjadi paru-paru hijau Solo dengan rimbun pohon beringin langka, kawanan rusa tutul, dan panggung kesenian ketoprak.",
     keyFacts: [
-      "Didirikan pada masa pemerintahan Sunan Pakubuwana II setelah peristiwa Geger Pacinan di Kartasura.",
-      "Memiliki menara pengawas unik setinggi 30 meter bernama Panggung Sangga Buwana (didirikan 1782).",
-      "Kompleks bangunan dikelilingi benteng pertahanan tebal bernama Baluwarti.",
-      "Koleksi museum mencakup kereta kencana Kyai Garuda Kencana dan gamelan pusaka berusia ratusan tahun."
+      "Terbagi menjadi dua bagian utama: Partini Tuin (taman air/danau resapan) dan Partinah Bosch (hutan kota).",
+      "Memiliki koleksi pohon-pohon langka berusia ratusan tahun seperti beringin putih, kenari, dan apel cokelat.",
+      "Terdapat kawanan rusa tutul (Axis axis) yang hidup bebas dan jinak berinteraksi dengan pengunjung.",
+      "Telah direvitalisasi dengan fasilitas modern seperti skywalk kanopi dan gedung pertunjukan seni tradisi."
     ],
     observationGuide: [
-      { aspect: "Nama Objek", prompt: "Nama resmi cagar budaya dan penguasa yang mendirikannya." },
-      { aspect: "Lokasi", prompt: "Letak geografis keraton di Surakarta dan kawasan Baluwarti." },
-      { aspect: "Ciri Bangunan", prompt: "Ciri khas arsitektur joglo, pilar bergaya corak Eropa, dan warna keemasan/hijau pareanom." },
-      { aspect: "Bagian-bagian", prompt: "Alun-alun Lor, Sasana Sumewa, Sitihinggil, Sasana Sewaka, Panggung Sangga Buwana." },
-      { aspect: "Fungsi/Manfaat", prompt: "Sebagai cagar budaya, museum edukasi sejarah, pusat upacara adat (Sekaten, Kirab 1 Sura)." }
+      { aspect: "Nama Objek", prompt: "Nama taman bersejarah dan kedua nama putri Mangkunegara VII." },
+      { aspect: "Lokasi", prompt: "Kawasan Manahan, Banjarsari, Solo utara." },
+      { aspect: "Ciri Lingkungan", prompt: "Kombinasi danau buatan tenang, hamparan rumput hijau, dan deretan pepohonan kanopi besar." },
+      { aspect: "Bagian/Elemen", prompt: "Partini Tuin (kolam perahu), Partinah Bosch (hutan tanaman langka), kolam teratai, panggung terbuka, kandang/area rusa." },
+      { aspect: "Fungsi/Manfaat", prompt: "Resapan air kota, paru-paru hijau lingkungan, tempat edukasi botani hayati, panggung pertunjukan ketoprak Solo." }
     ]
   },
   {
@@ -41,7 +41,7 @@ const LOCATIONS_DATA = [
     established: "1757 M",
     founder: "Kanjeng Gusti Pangeran Adipati Arya Mangkunegara I (Pangeran Sambernyawa)",
     address: "Jalan Ronggowarsito, Keprabon, Kecamatan Banjarsari, Kota Surakarta",
-    mapCoords: { x: 76, y: 72 },
+    mapCoords: { x: 55, y: 31 }, // Posisi di peta baru: tengah atas (Pura Mangkunegaran)
     tagline: "Kediaman agung Kadipaten Mangkunegaran dengan pendopo kayu jati terluas di Nusantara",
     thumbnail: "https://img.youtube.com/vi/1tWlaCUKndo/hqdefault.jpg",
     youtubeId: "1tWlaCUKndo",
@@ -64,13 +64,42 @@ const LOCATIONS_DATA = [
     ]
   },
   {
+    id: "triwindu",
+    name: "Pasar Triwindu",
+    category: "Pasar Barang Antik & Nostalgia Sejarah",
+    established: "1939 M",
+    founder: "KGPAA Mangkunegara VII",
+    address: "Jalan Diponegoro, Keprabon, Kecamatan Banjarsari, Kota Surakarta",
+    mapCoords: { x: 53, y: 53 }, // Posisi di peta baru: tengah (Pasar Triwindu)
+    tagline: "Pusat koleksi barang antik, artefak kuno, dan benda bernilai sejarah tinggi di Surakarta",
+    thumbnail: "https://img.youtube.com/vi/clZGGS_SHw8/hqdefault.jpg",
+    youtubeId: "clZGGS_SHw8",
+    embedUrl: "https://www.youtube.com/embed/clZGGS_SHw8",
+    youtubeUrl: "https://www.youtube.com/watch?v=clZGGS_SHw8",
+    channelName: "Dokumenter Pasar Tradisional Solo",
+    description: "Pasar Triwindu (juga dikenal sebagai Pasar Windujenar) didirikan pada tahun 1939 oleh KGPAA Mangkunegara VII untuk memperingati tiga windu (24 tahun) masa pemerintahannya. Pasar ini menjadi surga para kolektor benda antik dari berbagai era sejarah nusantara.",
+    keyFacts: [
+      "Didirikan pada tahun 1939 bertepatan dengan perayaan 24 tahun (tiga windu) bertakhtanya KGPAA Mangkunegara VII.",
+      "Menjual ribuan ragam benda antik, mulai dari lampu gantung antik, uang kuno, topeng, setrika arang, hingga gramofon piringan hitam.",
+      "Terletak di koridor budaya Ngarsopuro yang menghubungkan Jalan Slamet Riyadi dengan Pura Mangkunegaran.",
+      "Menjadi destinasi wisata budaya dan riset etnografi terkemuka bagi pelancong mancanegara."
+    ],
+    observationGuide: [
+      { aspect: "Nama Objek", prompt: "Nama pasar barang antik dan arti dari nama 'Triwindu'." },
+      { aspect: "Lokasi", prompt: "Kawasan Ngarsopuro, Keprabon, Banjarsari, Surakarta." },
+      { aspect: "Ciri Bangunan", prompt: "Kios-kios kayu dua lantai dengan etalase memajang benda-benda antik bersejarah." },
+      { aspect: "Bagian/Komoditas", prompt: "Lantai 1 barang kuno logam & keramik, lantai 2 suku cadang klasik, onderdil lampu, dan mebel kuno." },
+      { aspect: "Fungsi/Manfaat", prompt: "Pusat pelestarian benda budaya peninggalan masa lampau dan daya tarik pariwisata sejarah." }
+    ]
+  },
+  {
     id: "laweyan",
     name: "Kampung Batik Laweyan",
     category: "Sentra Kerajinan Tradisional & Kawasan Bersejarah",
     established: "Abad ke-16 M",
     founder: "Kyai Ageng Henis / Saudagar Batik Laweyan",
     address: "Kecamatan Laweyan, bagian barat Kota Surakarta",
-    mapCoords: { x: 18, y: 56 },
+    mapCoords: { x: 15, y: 62 }, // Posisi di peta baru: kiri tengah (Kampung Batik Laweyan)
     tagline: "Sentra batik legendaris dengan arsitektur lorong bertembok tinggi dan tradisi saudagar batik",
     thumbnail: "https://img.youtube.com/vi/NZShmFcGRME/hqdefault.jpg",
     youtubeId: "NZShmFcGRME",
@@ -93,13 +122,100 @@ const LOCATIONS_DATA = [
     ]
   },
   {
+    id: "radyapustaka",
+    name: "Museum Radya Pustaka",
+    category: "Museum Tertua di Indonesia & Khasanah Sastra",
+    established: "1890 M",
+    founder: "Kanjeng Raden Adipati Sosrodiningrat IV",
+    address: "Jalan Slamet Riyadi No. 275, Sriwedari, Laweyan, Kota Surakarta",
+    mapCoords: { x: 37, y: 81 }, // Posisi di peta baru: bawah kiri (Museum Radya Pustaka)
+    tagline: "Museum tertua di Nusantara yang menyimpan khazanah naskah kuno, pusaka, dan arca Mataram Kuno",
+    thumbnail: "https://img.youtube.com/vi/fCnaR24COGc/hqdefault.jpg",
+    youtubeId: "fCnaR24COGc",
+    embedUrl: "https://www.youtube.com/embed/fCnaR24COGc",
+    youtubeUrl: "https://www.youtube.com/watch?v=fCnaR24COGc",
+    channelName: "Kanal Dokumenter Museum Surakarta",
+    description: "Museum Radya Pustaka didirikan pada 28 Oktober 1890 oleh KRA Sosrodiningrat IV pada masa Pakubuwana IX. Terletak di kompleks Taman Sriwedari, museum ini merupakan museum tertua di Indonesia yang menyimpan koleksi naskah serat sastra Jawa, wayang, pusaka keris, serta arca perunggu dan batu peninggalan kerajaan Hindu-Buddha.",
+    keyFacts: [
+      "Merupakan museum tertua di Indonesia yang resmi didirikan pada 28 Oktober 1890.",
+      "Menyimpan manuskrip kuno berharga karangan pujangga keraton Raden Ngabehi Ranggawarsita.",
+      "Koleksi meliputi Canthik Kyai Rajamala (hiasan haluan perahu keraton), gamelan slendro pelog, dan arca Siwa Mahadewa.",
+      "Di halaman museum berdiri monumen patung dada R.Ng. Ranggawarsita yang diresmikan oleh Presiden Soekarno pada tahun 1953."
+    ],
+    observationGuide: [
+      { aspect: "Nama Objek", prompt: "Nama resmi museum tertua di Indonesia dan tahun berdirinya." },
+      { aspect: "Lokasi", prompt: "Kawasan Sriwedari di tepi Jalan protokol Slamet Riyadi, Surakarta." },
+      { aspect: "Ciri Bangunan", prompt: "Arsitektur loji bergaya neoklasik Eropa dipadu ruang pameran tradisi Jawa." },
+      { aspect: "Bagian Koleksi", prompt: "Ruang naskah manuskrip, ruang wayang purwa/gedog, ruang keris tosan aji, ruang Canthik Rajamala." },
+      { aspect: "Fungsi/Manfaat", prompt: "Pusat preservasi naskah literasi klasik Jawa, sarana edukasi kebudayaan, dan cagar budaya nasional." }
+    ]
+  },
+  {
+    id: "masjidagung",
+    name: "Masjid Agung Surakarta",
+    category: "Masjid Raya Keraton & Cagar Budaya Religi",
+    established: "1768 M",
+    founder: "Sunan Pakubuwana III",
+    address: "Kawasan Kauman, Kecamatan Pasar Kliwon, Kota Surakarta",
+    mapCoords: { x: 61, y: 81 }, // Posisi di peta baru: bawah tengah (Masjid Agung Surakarta)
+    tagline: "Masjid agung Kasunanan Surakarta dengan arsitektur atap tajug tumpang tiga dan tradisi gamelan Sekaten",
+    thumbnail: "https://img.youtube.com/vi/mHJpKDIV9gc/hqdefault.jpg",
+    youtubeId: "mHJpKDIV9gc",
+    embedUrl: "https://www.youtube.com/embed/mHJpKDIV9gc",
+    youtubeUrl: "https://www.youtube.com/watch?v=mHJpKDIV9gc",
+    channelName: "Pesona Sejarah Islam Surakarta",
+    description: "Masjid Agung Keraton Surakarta didirikan pada tahun 1768 oleh Susuhunan Pakubuwana III. Terletak di barat Alun-alun Utara, masjid ini menjadi pusat kegiatan ibadah keagamaan keraton dan masyarakat, serta lokasi inti penyelenggaraan tradisi perayaan Sekaten dan Grebeg Maulud Nabi.",
+    keyFacts: [
+      "Dibangun dengan gaya arsitektur tajug tumpang tiga bertakhta mustaka emas khas tradisi Jawa-Islam.",
+      "Memiliki Pagongan di halaman depan untuk menabuh Gamelan Sekaten Kyai Gunturmadu dan Kyai Guntursari.",
+      "Dilengkapi menara azan bergaya campuran Jawa-Moghul yang unik.",
+      "Kompleks masjid dikelilingi kolam air wudhu (blumbang) kuno dan kawasan perkampungan ulama Kauman."
+    ],
+    observationGuide: [
+      { aspect: "Nama Objek", prompt: "Nama resmi masjid kerajaan Kasunanan Surakarta dan pendirinya." },
+      { aspect: "Lokasi", prompt: "Sebelah barat Alun-alun Utara Keraton Surakarta, Kampung Kauman." },
+      { aspect: "Ciri Bangunan", prompt: "Atap tumpang tiga kayu jati, serambi terbuka berukuran luas, kolam wudhu keliling." },
+      { aspect: "Bagian Kompleks", prompt: "Ruang utama shalat berhias mihrab ukir, serambi pringgitan, Pagongan lor & kidul, menara azan." },
+      { aspect: "Fungsi/Manfaat", prompt: "Pusat ibadah umat Islam, arena upacara adat tradisi Sekaten, dan cagar budaya keislaman di Tanah Jawa." }
+    ]
+  },
+  {
+    id: "keraton",
+    name: "Keraton Surakarta Hadiningrat",
+    category: "Istana Kasunanan & Pusat Kebudayaan Jawa",
+    established: "1745 M",
+    founder: "Sri Susuhunan Pakubuwana II",
+    address: "Kelurahan Baluwarti, Kecamatan Pasar Kliwon, Kota Surakarta",
+    mapCoords: { x: 86, y: 82 }, // Posisi di peta baru: bawah kanan (Keraton Surakarta)
+    tagline: "Pusat peradaban Mataram Islam dan episentrum adat tradisi Jawa di Surakarta",
+    thumbnail: "https://img.youtube.com/vi/h_9AyR1hel0/hqdefault.jpg",
+    youtubeId: "h_9AyR1hel0",
+    embedUrl: "https://www.youtube.com/embed/h_9AyR1hel0",
+    youtubeUrl: "https://www.youtube.com/watch?v=h_9AyR1hel0",
+    channelName: "Pesona Indonesia / Pemkot Surakarta",
+    description: "Keraton Surakarta Hadiningrat merupakan istana resmi Kasunanan Surakarta yang didirikan pada tahun 1745. Kompleks keraton ini menyimpan ribuan koleksi pusaka, arsitektur perpaduan Jawa klasik dan Eropa, serta menjadi saksi peralihan sejarah Mataram Islam.",
+    keyFacts: [
+      "Didirikan pada masa pemerintahan Sunan Pakubuwana II setelah peristiwa Geger Pacinan di Kartasura.",
+      "Memiliki menara pengawas unik setinggi 30 meter bernama Panggung Sangga Buwana (didirikan 1782).",
+      "Kompleks bangunan dikelilingi benteng pertahanan tebal bernama Baluwarti.",
+      "Koleksi museum mencakup kereta kencana Kyai Garuda Kencana dan gamelan pusaka berusia ratusan tahun."
+    ],
+    observationGuide: [
+      { aspect: "Nama Objek", prompt: "Nama resmi cagar budaya dan penguasa yang mendirikannya." },
+      { aspect: "Lokasi", prompt: "Letak geografis keraton di Surakarta dan kawasan Baluwarti." },
+      { aspect: "Ciri Bangunan", prompt: "Ciri khas arsitektur joglo, pilar bergaya corak Eropa, dan warna keemasan/hijau pareanom." },
+      { aspect: "Bagian-bagian", prompt: "Alun-alun Lor, Sasana Sumewa, Sitihinggil, Sasana Sewaka, Panggung Sangga Buwana." },
+      { aspect: "Fungsi/Manfaat", prompt: "Sebagai cagar budaya, museum edukasi sejarah, pusat upacara adat (Sekaten, Kirab 1 Sura)." }
+    ]
+  },
+  {
     id: "pasargede",
     name: "Pasar Gede Hardjonagoro",
     category: "Pasar Tradisional & Cagar Budaya Kolonial",
     established: "1930 M",
     founder: "Ir. Thomas Karsten & Pakubuwana X",
     address: "Jalan Urip Sumoharjo, Sudiroprajan, Kecamatan Jebres, Kota Surakarta",
-    mapCoords: { x: 85, y: 52 },
+    mapCoords: { x: 80, y: 52 }, // Posisi di peta baru: kanan tengah (Pasar Gede)
     tagline: "Pasar peradaban tertua Surakarta perpaduan arsitektur Belanda dan falsafah atap Jawa",
     thumbnail: "https://img.youtube.com/vi/XjBzxO5khPg/hqdefault.jpg",
     youtubeId: "XjBzxO5khPg",
@@ -119,35 +235,6 @@ const LOCATIONS_DATA = [
       { aspect: "Ciri Bangunan", prompt: "Bangunan dua lantai, jendela ventilasi tinggi lebar, atap tinggi menaungi pedagang." },
       { aspect: "Bagian/Aktivitas", prompt: "Los pedagang buah, los bumbu rempah, kios kuliner tradisional, area sembako, jembatan penghubung." },
       { aspect: "Fungsi/Manfaat", prompt: "Pusat distribusi pangan rakyat, penggerak denyut ekonomi Surakarta, etalase kuliner autentik." }
-    ]
-  },
-  {
-    id: "balekambang",
-    name: "Taman Balekambang Surakarta",
-    category: "Taman Botani, Konservasi Alam & Seni Budaya",
-    established: "1921 M",
-    founder: "KGPAA Mangkunegara VII",
-    address: "Jalan Balekambang No. 1, Manahan, Kecamatan Banjarsari, Kota Surakarta",
-    mapCoords: { x: 30, y: 22 },
-    tagline: "Oase hijau bersejarah yang dipersembahkan untuk kedua putri Adipati Mangkunegara VII",
-    thumbnail: "https://img.youtube.com/vi/fprOycbIlJg/hqdefault.jpg",
-    youtubeId: "fprOycbIlJg",
-    embedUrl: "https://www.youtube.com/embed/fprOycbIlJg",
-    youtubeUrl: "https://www.youtube.com/watch?v=fprOycbIlJg",
-    channelName: "Pesona Surakarta / Humas Surakarta",
-    description: "Taman Balekambang dibangun pada 26 Oktober 1921 oleh KGPAA Mangkunegara VII sebagai wujud cinta kasih kepada kedua putrinya, GRAy Partini dan GRAy Partinah. Kini menjadi paru-paru hijau Solo dengan rimbun pohon beringin langka, kawanan rusa tutul, dan panggung kesenian ketoprak.",
-    keyFacts: [
-      "Terbagi menjadi dua bagian utama: Partini Tuin (taman air/danau resapan) dan Partinah Bosch (hutan kota).",
-      "Memiliki koleksi pohon-pohon langka berusia ratusan tahun seperti beringin putih, kenari, dan apel cokelat.",
-      "Terdapat kawanan rusa tutul (Axis axis) yang hidup bebas dan jinak berinteraksi dengan pengunjung.",
-      "Telah direvitalisasi dengan fasilitas modern seperti skywalk kanopi dan gedung pertunjukan seni tradisi."
-    ],
-    observationGuide: [
-      { aspect: "Nama Objek", prompt: "Nama taman bersejarah dan kedua nama putri Mangkunegara VII." },
-      { aspect: "Lokasi", prompt: "Kawasan Manahan, Banjarsari, Solo utara." },
-      { aspect: "Ciri Lingkungan", prompt: "Kombinasi danau buatan tenang, hamparan rumput hijau, dan deretan pepohonan kanopi besar." },
-      { aspect: "Bagian/Elemen", prompt: "Partini Tuin (kolam perahu), Partinah Bosch (hutan tanaman langka), kolam teratai, panggung terbuka, kandang/area rusa." },
-      { aspect: "Fungsi/Manfaat", prompt: "Resapan air kota, paru-paru hijau lingkungan, tempat edukasi botani hayati, panggung pertunjukan ketoprak Solo." }
     ]
   }
 ];
