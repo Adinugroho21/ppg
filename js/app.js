@@ -1888,6 +1888,17 @@ function initSampleDocAnalysis() {
     btn.setAttribute('rel', 'noopener noreferrer');
   });
 
+  // Pastikan klik label pilihan radio berfungsi andal
+  document.querySelectorAll('.text-choice-radio-label').forEach(label => {
+    label.addEventListener('click', function(e) {
+      const radio = this.querySelector('input[type="radio"]');
+      if (radio && e.target !== radio) {
+        radio.checked = true;
+        handleSelectSampleText(radio.value);
+      }
+    });
+  });
+
   // 2. Muat teks pilihan yang tersimpan di localStorage
   try {
     const savedText = localStorage.getItem(SAMPLE_TEXT_STORAGE_KEY);
@@ -1969,9 +1980,9 @@ function handleSelectSampleText(textTitle) {
 function promptChangeSampleText() {
   const current = AppState.sampleAnalysis.chosenText;
   const choice = confirm(
-    `Teks pilihanmu saat ini: "${current || 'Belum dipilih'}"\n\n` +
-    `Apakah kamu ingin beralih ke teks lainnya?\n` +
-    `Perubahan teks tidak akan menghapus progres kegiatan atau draf yang telah kamu ketik.`
+    `Teks pilihan murid saat ini: "${current || 'Belum dipilih'}"\n\n` +
+    `Apakah ingin beralih ke teks lainnya?\n` +
+    `Pergantian teks tidak akan menghapus progres kegiatan atau draf jawaban yang telah diketik.`
   );
   if (!choice) return;
 
