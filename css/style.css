@@ -2348,6 +2348,33 @@ h1, h2, h3, h4, .font-display {
   box-shadow: 0 0 0 3px rgba(31, 193, 107, 0.4);
 }
 
+.btn-gimkit-play-main {
+  background: linear-gradient(135deg, #1FC16B 0%, #00A349 100%);
+  color: #FFFFFF !important;
+  font-size: 1.05rem;
+  font-weight: 800;
+  padding: 0.95rem 1.8rem;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(31, 193, 107, 0.45);
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  border: 2px solid #58E298;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.btn-gimkit-play-main:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(31, 193, 107, 0.6);
+  background: linear-gradient(135deg, #25DD7B 0%, #00B953 100%);
+  color: #FFFFFF !important;
+}
+
 .btn-gimkit-play {
   background: linear-gradient(135deg, #1FC16B, #00A349);
   color: #FFFFFF !important;
@@ -4735,6 +4762,40 @@ h1, h2, h3, h4, .font-display {
 
   .paper-doc-title {
     font-size: 1.15rem !important;
+  }
+
+  /* 13. GIMKIT ASSESSMENT CARD RESPONSIVE */
+  .gimkit-assessment-card {
+    padding: 1.5rem 1.25rem !important;
+    border-radius: 16px !important;
+  }
+
+  .gimkit-action-box {
+    flex-direction: column !important;
+    gap: 1.25rem !important;
+  }
+
+  .gimkit-btn-col {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .btn-gimkit-play-main {
+    width: 100% !important;
+    padding: 0.85rem 1.25rem !important;
+    font-size: 0.98rem !important;
+  }
+
+  .gimkit-input-group {
+    flex-direction: column !important;
+  }
+
+  .gimkit-code-input {
+    width: 100% !important;
+  }
+
+  .gimkit-code-form .btn-gimkit-play {
+    width: 100% !important;
   }
 
   /* Video Observasi Frame */

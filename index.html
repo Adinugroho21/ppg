@@ -780,31 +780,43 @@
           </div>
 
           <div class="gimkit-btn-col">
-            <!-- Form Input Kode PIN / Link Game Murid -->
+            <!-- Tombol Utama Langsung Buka Game Gimkit -->
+            <a href="https://www.gimkit.com/join/6adf50baef233e8f6c38a3b6" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="btn-gimkit-play-main"
+               id="btnGimkitDirectPlay">
+              <span>🚀</span> Buka Game Gimkit Formatif <span>↗</span>
+            </a>
+            <span class="gimkit-link-note" style="margin-bottom: 0.5rem;">
+              Tautan room: <strong>gimkit.com/join/6adf50baef233e8f6c38a3b6</strong>
+            </span>
+
+            <!-- Opsi Alternatif: Input Kode PIN / Link Baru Jika Berganti Room -->
             <div class="gimkit-code-form">
-              <label for="gimkitGameCodeInput" class="gimkit-code-label">Masukkan Kode Game / Tautan:</label>
+              <label for="gimkitGameCodeInput" class="gimkit-code-label">Atau Masukkan Kode / Link Room Baru Guru:</label>
               <div class="gimkit-input-group">
                 <input type="text" 
                        id="gimkitGameCodeInput" 
                        class="gimkit-code-input" 
-                       placeholder="Contoh: 6add94 atau tempel link..."
-                       value="6add94cfe72d68181c0a4125">
+                       placeholder="Tempel link atau kode PIN..."
+                       value="https://www.gimkit.com/join/6adf50baef233e8f6c38a3b6">
                 <button type="button" class="btn-gimkit-play" onclick="joinGimkitGame()">
-                  <span>🚀</span> Buka Game <span>↗</span>
+                  Buka ↗
                 </button>
               </div>
             </div>
 
-            <!-- Tombol Lobi Resmi Gimkit -->
+            <!-- Tombol Alternatif Lobi Resmi Gimkit -->
             <div class="gimkit-direct-links">
               <a href="https://www.gimkit.com/join" 
                  target="_blank" 
                  rel="noopener noreferrer" 
                  class="btn-gimkit-lobby">
-                <span>🚪</span> Buka Lobi Resmi Gimkit (gimkit.com/join) ↗
+                <span>🚪</span> Masuk Lewat Lobi Resmi (gimkit.com/join) ↗
               </a>
               <span class="gimkit-link-note">
-                💡 <em>Catatan: Pastikan guru telah membuka/memulai sesi room Gimkit di kelas sebelum murid bergabung.</em>
+                💡 <em>Catatan: Pastikan guru sedang membuka atau meng-host room permainan Gimkit saat murid bergabung.</em>
               </span>
             </div>
           </div>
