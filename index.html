@@ -774,19 +774,39 @@
               <span class="gimkit-icon">⚡</span>
               <div>
                 <strong>Tautkan dengan Guru / Host Game</strong>
-                <p>Klik tombol untuk langsung membuka lobi permainan Gimkit atau bergabung ke room.</p>
+                <p>Masukkan kode game (Game PIN) dari guru atau klik tombol lobi untuk langsung bergabung ke ruangan.</p>
               </div>
             </div>
           </div>
 
           <div class="gimkit-btn-col">
-            <a href="https://www.gimkit.com/join/6add94cfe72d68181c0a4125" 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn-gimkit-play">
-              <span>🚀</span> Buka Game Gimkit Formatif <span>↗</span>
-            </a>
-            <span class="gimkit-link-note">Tautan langsung: gimkit.com/join/6add94cfe72d68181c0a4125</span>
+            <!-- Form Input Kode PIN / Link Game Murid -->
+            <div class="gimkit-code-form">
+              <label for="gimkitGameCodeInput" class="gimkit-code-label">Masukkan Kode Game / Tautan:</label>
+              <div class="gimkit-input-group">
+                <input type="text" 
+                       id="gimkitGameCodeInput" 
+                       class="gimkit-code-input" 
+                       placeholder="Contoh: 6add94 atau tempel link..."
+                       value="6add94cfe72d68181c0a4125">
+                <button type="button" class="btn-gimkit-play" onclick="joinGimkitGame()">
+                  <span>🚀</span> Buka Game <span>↗</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Tombol Lobi Resmi Gimkit -->
+            <div class="gimkit-direct-links">
+              <a href="https://www.gimkit.com/join" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn-gimkit-lobby">
+                <span>🚪</span> Buka Lobi Resmi Gimkit (gimkit.com/join) ↗
+              </a>
+              <span class="gimkit-link-note">
+                💡 <em>Catatan: Pastikan guru telah membuka/memulai sesi room Gimkit di kelas sebelum murid bergabung.</em>
+              </span>
+            </div>
           </div>
         </div>
       </div>

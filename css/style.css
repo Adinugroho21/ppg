@@ -2303,35 +2303,110 @@ h1, h2, h3, h4, .font-display {
 .gimkit-btn-col {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0.65rem;
+  align-items: stretch;
+  gap: 0.85rem;
+  width: 100%;
+  max-width: 440px;
+}
+
+.gimkit-code-form {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1rem 1.15rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.gimkit-code-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #E2D9F3;
+  margin-bottom: 0.5rem;
+}
+
+.gimkit-input-group {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.gimkit-code-input {
+  flex: 1;
+  min-width: 160px;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  border: 2px solid #58E298;
+  background: #FFFFFF;
+  color: #1E1712;
+  font-size: 0.95rem;
+  font-weight: 700;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.gimkit-code-input:focus {
+  box-shadow: 0 0 0 3px rgba(31, 193, 107, 0.4);
 }
 
 .btn-gimkit-play {
   background: linear-gradient(135deg, #1FC16B, #00A349);
   color: #FFFFFF !important;
-  font-size: 1.05rem;
+  font-size: 0.98rem;
   font-weight: 800;
-  padding: 0.9rem 2rem;
-  border-radius: var(--radius-full);
+  padding: 0.75rem 1.35rem;
+  border-radius: 10px;
   text-decoration: none;
   box-shadow: 0 8px 20px rgba(31, 193, 107, 0.4);
   transition: var(--transition);
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
+  justify-content: center;
+  gap: 0.45rem;
   border: 2px solid #58E298;
+  cursor: pointer;
 }
 
 .btn-gimkit-play:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 12px 28px rgba(31, 193, 107, 0.55);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(31, 193, 107, 0.55);
   background: linear-gradient(135deg, #25DD7B, #00B953);
 }
 
+.gimkit-direct-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.btn-gimkit-lobby {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.65rem 1.15rem;
+  background: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-gimkit-lobby:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: #58E298;
+  color: #FFFFFF !important;
+}
+
 .gimkit-link-note {
-  font-size: 0.72rem;
-  color: #A997D3;
+  font-size: 0.78rem;
+  color: #D4C9ED;
+  line-height: 1.45;
+  text-align: center;
 }
 
 /* ===================================================================

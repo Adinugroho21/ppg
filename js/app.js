@@ -2287,5 +2287,32 @@ if (document.readyState === 'loading') {
   initSampleDocAnalysis();
 }
 
+/**
+ * Handle pembukaan game Gimkit cerdas (mendukung link penuh, game ID, kode PIN, atau fallback ke lobi join)
+ */
+function joinGimkitGame() {
+  const inputEl = document.getElementById('gimkitGameCodeInput');
+  let rawVal = inputEl ? inputEl.value.trim() : '';
+
+  let targetUrl = 'https://www.gimkit.com/join';
+
+  if (!rawVal) {
+    // Jika kosong, langsung buka lobi resmi gimkit
+    targetUrl = 'https://www.gimkit.com/join';
+  } else if (rawVal.startsWith('http://') || rawVal.startsWith('https://')) {
+    targetUrl = rawVal;
+  } else if (rawVal.includes('gimkit.com')) {
+    targetUrl = 'https://' + rawVal;
+  } else {
+    // Jika memasukkan kode ID atau PIN angka/alfanumerik
+    // Bersihkan karakter selain alfanumerik
+    const cleanCode = rawVal.replace(/[^a-zA-Z0-9]/g, '');
+    targetUrl = `https://www.gimkit.com/join/${cleanCode}`;
+  }
+
+  window.open(targetUrl, '_blank', 'noopener,noreferrer');
+}
+
+
 
 
