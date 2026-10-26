@@ -384,7 +384,7 @@
       </div>
 
       <!-- 5 Kartu Ciri LHO -->
-      <div style="margin-bottom: 2rem;">
+      <div style="margin-bottom: 2.5rem;">
         <h3 style="font-size: 1.5rem; color: #3D2917; margin-bottom: 1rem;">
           5 Ciri Utama Teks Laporan Hasil Observasi
         </h3>
@@ -438,6 +438,92 @@
             <div class="ciri-desc">
               Menggunakan kaidah tata bahasa Indonesia baku (EYD/PUEBI) serta istilah teknis yang tepat.
             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================================================================
+           BAGIAN 1: AYO ANALISIS CONTOH TEKS LHO (MENU KENALI LHO)
+           =================================================================== -->
+      <div class="doc-analysis-box" id="kenaliDocAnalysisBox">
+        <div class="doc-analysis-header">
+          <div class="section-header-pill" style="background: var(--indigo-50); color: var(--indigo-600);">
+            📑 Aktivitas Analisis Teks Otentik
+          </div>
+          <h3 class="doc-analysis-title">Ayo Analisis Contoh Teks LHO</h3>
+          <p class="doc-analysis-lead">
+            Bukalah dokumen contoh teks melalui tombol berikut. Di dalamnya terdapat teks ‘Pasar Gede Surakarta’ dan ‘Museum Radya Pustaka’. Pilih salah satu teks untuk dianalisis. Gunakan teks yang sama pada menu Struktur LHO dan Kaidah Bahasa.
+          </p>
+        </div>
+
+        <!-- Tombol Buka Dokumen -->
+        <div class="doc-open-row">
+          <a href="https://drive.google.com/file/d/14Hyai8q2hZotsGOXxg2YgnLehHDshP6J/view?usp=sharing" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="btn-open-doc btn-open-google-drive">
+            <span>📂</span> Buka Dokumen Contoh Teks <span>↗</span>
+          </a>
+          <span class="doc-open-note">*(Dibuka di tab baru)*</span>
+        </div>
+
+        <!-- Pilihan Teks Murid -->
+        <div class="text-choice-card">
+          <div class="text-choice-label">Teks yang saya analisis:</div>
+          <div class="text-choice-options">
+            <label class="text-choice-radio-label">
+              <input type="radio" name="selectedSampleTextRadio" value="Pasar Gede Surakarta" onchange="handleSelectSampleText('Pasar Gede Surakarta')">
+              <span class="custom-radio-text">🏛️ Pasar Gede Surakarta</span>
+            </label>
+            <label class="text-choice-radio-label">
+              <input type="radio" name="selectedSampleTextRadio" value="Museum Radya Pustaka" onchange="handleSelectSampleText('Museum Radya Pustaka')">
+              <span class="custom-radio-text">📚 Museum Radya Pustaka</span>
+            </label>
+          </div>
+          <div class="text-choice-feedback" id="kenaliSelectedFeedback">
+            <span class="badge-chosen-info">⚠️ Murid belum memilih teks. Silakan buka dokumen dan pilih salah satu judul di atas.</span>
+          </div>
+        </div>
+
+        <!-- Form Pertanyaan & Kolom Jawaban Murid -->
+        <div class="analysis-questions-wrapper">
+          <!-- Pertanyaan a -->
+          <div class="analysis-question-item">
+            <label class="analysis-q-label">
+              <span class="q-badge">Pertanyaan a</span>
+              Bagaimana isi dan bahasa teks menunjukkan karakteristik LHO? Jelaskan sedikitnya dua karakteristik, masing-masing disertai kutipan bukti dan alasan.
+            </label>
+            <textarea class="analysis-answer-input" 
+                      id="ans_kenali_a" 
+                      placeholder="Tuliskan temuan karakteristik LHO, kutipan bukti dari teks, dan alasanmu..."
+                      oninput="saveAnalysisDraft('kenali', 'a', this.value)"></textarea>
+          </div>
+
+          <!-- Pertanyaan b -->
+          <div class="analysis-question-item">
+            <label class="analysis-q-label">
+              <span class="q-badge">Pertanyaan b</span>
+              Pilih satu informasi yang memuat angka. Jelaskan perannya dalam memperjelas informasi serta sumber yang diperlukan untuk memeriksa kebenarannya.
+            </label>
+            <textarea class="analysis-answer-input" 
+                      id="ans_kenali_b" 
+                      placeholder="Tuliskan informasi angka yang kamu pilih, perannya dalam teks, serta sumber verifikasinya..."
+                      oninput="saveAnalysisDraft('kenali', 'b', this.value)"></textarea>
+          </div>
+
+          <!-- Petunjuk Format Jawaban -->
+          <div class="analysis-guidance-pill">
+            💡 <strong>Petunjuk jawaban:</strong> Tuliskan hasil analisismu pada LKPD dengan format: <em>temuan, bukti dari teks, dan alasan.</em>
+          </div>
+
+          <!-- Status Bar & Tombol Kirim Jawaban -->
+          <div class="analysis-action-bar">
+            <div class="draft-status-indicator" id="status_kenali">
+              <span class="status-icon">💾</span> <span class="status-text">Draf tersimpan di perangkat ini</span>
+            </div>
+            <button class="btn btn-primary btn-submit-activity" onclick="submitAnalysisAnswers('kenali')">
+              <span>📤</span> Kirim Jawaban
+            </button>
           </div>
         </div>
       </div>
@@ -580,6 +666,86 @@
           <button class="btn btn-primary" onclick="checkParagraphOrder()">
             Periksa Susunan Paragraf ➔
           </button>
+        </div>
+      </div>
+
+      <!-- ===================================================================
+           BAGIAN 2: ANALISIS STRUKTUR TEKS PILIHANMU (MENU STRUKTUR LHO)
+           =================================================================== -->
+      <div class="doc-analysis-box" id="strukturDocAnalysisBox" style="margin-top: 3rem;">
+        <div class="doc-analysis-header">
+          <div class="section-header-pill" style="background: var(--terracotta-50); color: var(--terracotta-600);">
+            📑 Aktivitas Analisis Struktur Otentik
+          </div>
+          <h3 class="doc-analysis-title">Analisis Struktur Teks Pilihanmu</h3>
+          
+          <!-- Indikator Teks Pilihan Murid -->
+          <div class="chosen-text-banner" id="bannerChosenTextStruktur">
+            <div class="chosen-text-content">
+              <span class="chosen-text-label">Teks pilihanmu:</span>
+              <span class="chosen-text-value display-chosen-text-title"><em>(Belum memilih teks)</em></span>
+            </div>
+            <button type="button" class="btn-change-text" onclick="promptChangeSampleText()" title="Ganti pilihan teks">
+              🔄 Ganti Teks
+            </button>
+          </div>
+
+          <div class="unselected-text-warning" id="warningUnselectedStruktur" style="display: none;">
+            ⚠️ Murid belum memilih teks. Bukalah dokumen contoh teks melalui tombol di bawah dan tentukan teks yang akan dianalisis.
+          </div>
+        </div>
+
+        <!-- Tombol Buka Kembali Dokumen Contoh Teks -->
+        <div class="doc-open-row">
+          <a href="https://drive.google.com/file/d/14Hyai8q2hZotsGOXxg2YgnLehHDshP6J/view?usp=sharing" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="btn-open-doc btn-open-google-drive">
+            <span>📂</span> Buka Kembali Dokumen Contoh Teks <span>↗</span>
+          </a>
+          <span class="doc-open-note">*(Dibuka di tab baru)*</span>
+        </div>
+
+        <!-- Form Perintah & Pertanyaan Analisis Struktur -->
+        <div class="analysis-questions-wrapper">
+          <!-- Perintah Struktur -->
+          <div class="analysis-question-item">
+            <label class="analysis-q-label">
+              <span class="q-badge">Perintah Analisis</span>
+              Bacalah kembali teks pilihanmu dalam dokumen. Analisislah bagian pernyataan umum, deskripsi bagian, dan deskripsi manfaat. Tentukan paragraf yang termasuk setiap bagian, sertakan bukti, dan jelaskan alasan pembagianmu.
+            </label>
+            <textarea class="analysis-answer-input" 
+                      id="ans_struktur_a" 
+                      placeholder="Tuliskan pembagian paragraf (Pernyataan Umum, Deskripsi Bagian, Deskripsi Manfaat), kutipan bukti, dan alasan pembagianmu..."
+                      oninput="saveAnalysisDraft('struktur', 'a', this.value)"></textarea>
+          </div>
+
+          <!-- Pertanyaan Struktur -->
+          <div class="analysis-question-item">
+            <label class="analysis-q-label">
+              <span class="q-badge">Pertanyaan Lanjutan</span>
+              Bagaimana pernyataan umum dikembangkan dalam deskripsi bagian dan dihubungkan dengan deskripsi manfaat? Jelaskan menggunakan contoh dari teks.
+            </label>
+            <textarea class="analysis-answer-input" 
+                      id="ans_struktur_b" 
+                      placeholder="Jelaskan keterkaitan dan alur pengembangan pernyataan umum ke deskripsi bagian hingga deskripsi manfaat beserta contoh dari teks..."
+                      oninput="saveAnalysisDraft('struktur', 'b', this.value)"></textarea>
+          </div>
+
+          <!-- Petunjuk Jawaban -->
+          <div class="analysis-guidance-pill">
+            💡 <strong>Petunjuk:</strong> Tuliskan hasil analisismu pada LKPD.
+          </div>
+
+          <!-- Status Bar & Tombol Kirim Jawaban -->
+          <div class="analysis-action-bar">
+            <div class="draft-status-indicator" id="status_struktur">
+              <span class="status-icon">💾</span> <span class="status-text">Draf tersimpan di perangkat ini</span>
+            </div>
+            <button class="btn btn-primary btn-submit-activity" onclick="submitAnalysisAnswers('struktur')">
+              <span>📤</span> Kirim Jawaban
+            </button>
+          </div>
         </div>
       </div>
 
@@ -892,8 +1058,94 @@
         </div>
       </div>
 
-      <!-- FITUR 2: KUIS INTERAKTIF PUSAKA BAHASA SURAKARTA (CRT • TEKS LHO) -->
-      <div class="mb-12" style="margin-bottom: 3.5rem;">
+      <!-- FITUR 2: LATIHAN MENYUNTING KALIMAT SUBJEKTIF MENJADI OBJEKTIF -->
+      <div style="margin-bottom: 3.5rem;">
+        <div class="section-header-pill" style="background: var(--terracotta-50); color: var(--terracotta-600);">
+          ✍️ Keterampilan Menulis Ilmiah
+        </div>
+        <h3 style="font-size: 1.6rem; color: #3D2917; margin-bottom: 0.5rem;">
+          Latihan Menyunting Kalimat Subjektif Menjadi Objektif
+        </h3>
+        <p style="font-size: 0.95rem; color: #6B6258; max-width: 820px; margin-bottom: 2rem;">
+          Laporan Hasil Observasi harus bersih dari kata bernilai rasa, opini individual, serta sanjungan berlebihan. 
+          Amati kalimat subjektif berikut, ketik alternatif perbaikan faktual versimu, lalu klik tombol bandingkan untuk melihat model jawaban baku dan alasan linguistiknya.
+        </p>
+
+        <!-- Container generated dynamically by JS -->
+        <div id="editingExercisesContainer" class="editing-exercises-wrapper"></div>
+      </div>
+
+      <!-- ===================================================================
+           BAGIAN 3: ANALISIS KAIDAH BAHASA TEKS PILIHANMU (MENU KAIDAH BAHASA)
+           =================================================================== -->
+      <div class="doc-analysis-box" id="kaidahDocAnalysisBox" style="margin-top: 3rem;">
+        <div class="doc-analysis-header">
+          <div class="section-header-pill" style="background: var(--terracotta-50); color: var(--terracotta-600);">
+            📑 Aktivitas Analisis Kebahasaan Otentik
+          </div>
+          <h3 class="doc-analysis-title">Analisis Kaidah Bahasa Teks Pilihanmu</h3>
+          
+          <!-- Indikator Teks Pilihan Murid -->
+          <div class="chosen-text-banner" id="bannerChosenTextKaidah">
+            <div class="chosen-text-content">
+              <span class="chosen-text-label">Teks pilihanmu:</span>
+              <span class="chosen-text-value display-chosen-text-title"><em>(Belum memilih teks)</em></span>
+            </div>
+            <button type="button" class="btn-change-text" onclick="promptChangeSampleText()" title="Ganti pilihan teks">
+              🔄 Ganti Teks
+            </button>
+          </div>
+
+          <div class="unselected-text-warning" id="warningUnselectedKaidah" style="display: none;">
+            ⚠️ Murid belum memilih teks. Bukalah dokumen contoh teks melalui tombol di bawah dan tentukan teks yang akan dianalisis.
+          </div>
+        </div>
+
+        <!-- Tombol Buka Kembali Dokumen Contoh Teks -->
+        <div class="doc-open-row">
+          <a href="https://drive.google.com/file/d/14Hyai8q2hZotsGOXxg2YgnLehHDshP6J/view?usp=sharing" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="btn-open-doc btn-open-google-drive">
+            <span>📂</span> Buka Kembali Dokumen Contoh Teks <span>↗</span>
+          </a>
+          <span class="doc-open-note">*(Dibuka di tab baru)*</span>
+        </div>
+
+        <!-- Form Perintah Analisis Kaidah Bahasa -->
+        <div class="analysis-questions-wrapper">
+          <!-- Perintah Kaidah -->
+          <div class="analysis-question-item">
+            <label class="analysis-q-label">
+              <span class="q-badge">Perintah Analisis Kebahasaan</span>
+              Bacalah kembali teks pilihanmu dalam dokumen. Analisislah sedikitnya empat jenis unsur kebahasaan yang telah dipelajari. Untuk setiap jenis, tuliskan kutipan bukti dan jelaskan fungsinya dalam menyampaikan informasi secara jelas dan objektif.
+            </label>
+            <textarea class="analysis-answer-input" 
+                      id="ans_kaidah_a" 
+                      placeholder="Tuliskan analisis 4 jenis unsur kebahasaan (misal: nomina, verba relasional/material, istilah teknis, konjungsi, kalimat definisi/deskripsi) beserta kutipan bukti dan fungsinya..."
+                      style="min-height: 160px;"
+                      oninput="saveAnalysisDraft('kaidah', 'a', this.value)"></textarea>
+          </div>
+
+          <!-- Petunjuk Jawaban -->
+          <div class="analysis-guidance-pill">
+            💡 <strong>Petunjuk:</strong> Tuliskan hasil analisismu pada LKPD dengan format: <em>jenis unsur kebahasaan, kutipan bukti, dan fungsi.</em>
+          </div>
+
+          <!-- Status Bar & Tombol Kirim Jawaban -->
+          <div class="analysis-action-bar">
+            <div class="draft-status-indicator" id="status_kaidah">
+              <span class="status-icon">💾</span> <span class="status-text">Draf tersimpan di perangkat ini</span>
+            </div>
+            <button class="btn btn-primary btn-submit-activity" onclick="submitAnalysisAnswers('kaidah')">
+              <span>📤</span> Kirim Jawaban
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ASESMEN FORMATIF KUIS INTERAKTIF PUSAKA BAHASA SURAKARTA (BAGIAN PALING BAWAH) -->
+      <div class="mb-12" style="margin-bottom: 3.5rem; margin-top: 3rem;">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 1rem;">
           <div>
             <div class="section-header-pill" style="background: var(--terracotta-50); color: var(--terracotta-600);">
@@ -922,23 +1174,6 @@
                   allow="autoplay">
           </iframe>
         </div>
-      </div>
-
-      <!-- FITUR 3: LATIHAN MENYUNTING KALIMAT SUBJEKTIF MENJADI OBJEKTIF -->
-      <div style="margin-bottom: 3.5rem;">
-        <div class="section-header-pill" style="background: var(--terracotta-50); color: var(--terracotta-600);">
-          ✍️ Keterampilan Menulis Ilmiah
-        </div>
-        <h3 style="font-size: 1.6rem; color: #3D2917; margin-bottom: 0.5rem;">
-          Latihan Menyunting Kalimat Subjektif Menjadi Objektif
-        </h3>
-        <p style="font-size: 0.95rem; color: #6B6258; max-width: 820px; margin-bottom: 2rem;">
-          Laporan Hasil Observasi harus bersih dari kata bernilai rasa, opini individual, serta sanjungan berlebihan. 
-          Amati kalimat subjektif berikut, ketik alternatif perbaikan faktual versimu, lalu klik tombol bandingkan untuk melihat model jawaban baku dan alasan linguistiknya.
-        </p>
-
-        <!-- Container generated dynamically by JS -->
-        <div id="editingExercisesContainer" class="editing-exercises-wrapper"></div>
       </div>
 
       <div style="text-align: center; margin-top: 2rem;">
